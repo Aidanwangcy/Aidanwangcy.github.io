@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan wang</title>
-    <updated>2019-06-16T03:52:24.560Z</updated>
+    <updated>2019-06-16T07:04:16.941Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -16,7 +16,10 @@
         <link href="https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji">
         </link>
         <updated>2019-06-16T03:12:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>基础环境搭建，烧录MicroPython固件，以及进入命令</p>
+]]></summary>
         <content type="html"><![CDATA[<p>基础环境搭建，烧录MicroPython固件，以及进入命令</p>
+ <!--more-->
 <h2 id="环境准备">环境准备：</h2>
 <p><strong>安装esptool：</strong></p>
 <p><code>pip3 install esptool</code></p>
@@ -32,11 +35,11 @@
 <p><a href="https://micropython.org/download">MicroPython固件</a>下载对应固件</p>
 <h2 id="1连接nodemcu到mac上">1.连接nodemcu到Mac上</h2>
 <p>使用<code>ls /dev/tty*</code>或者<code>ls /dev/cu*</code>，查询端口是否可用（即列表中是否包含SLABUSBtoUART）</p>
-<h2 id="2擦出之前固件">2.擦出之前固件</h2>
+<h2 id="2擦除之前固件">2.擦除之前固件</h2>
 <p>运行</p>
 <p><code>esptool.py --port /dev/cu.SLABUSBtoUART eraseflash</code></p>
 <p>或<code>esptool.py --port /dev/tty.SLABUSBtoUART eraseflash</code></p>
-<p>擦除原厂固件,​直到出现</p>
+<p>擦除原厂固件,直到出现</p>
 <p><code>chip erase complete successfully</code></p>
 <h2 id="3烧录固件">3.烧录固件</h2>
 <p>cd 到固件下载目录</p>
@@ -46,7 +49,7 @@
 <h2 id="4连接esp8266">4.连接esp8266</h2>
 <p>​	运行</p>
 <p><code>screen /dev/tty.SLABUSBtoUART 115200 fn=off</code></p>
-<p>​	出现光标后按Nodemcu伤的RST进行硬中断</p>
+<p>​	出现光标后按Nodemcu上的RST进行硬中断</p>
 <p>​	出现MicroPython 说明烧写成功</p>
 <p>​	OSError:[Errno 2] ENOENT（错误表示没有main.py）</p>
 <h2 id="5启用webrepl服务">5.启用WEBREPL服务</h2>

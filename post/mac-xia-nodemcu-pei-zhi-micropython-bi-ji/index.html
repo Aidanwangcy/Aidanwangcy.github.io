@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1560657140353">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1560668606461">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://aidanwangcy.github.io">
-        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1560657140353" class="site-logo">
+        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1560668606461" class="site-logo">
         <h1 class="site-title">Aidan wang</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,6 +106,7 @@
             
             <div class="post-content">
               <p>基础环境搭建，烧录MicroPython固件，以及进入命令</p>
+ <!--more-->
 <h2 id="环境准备">环境准备：</h2>
 <p><strong>安装esptool：</strong></p>
 <p><code>pip3 install esptool</code></p>
@@ -121,11 +122,11 @@
 <p><a href="https://micropython.org/download">MicroPython固件</a>下载对应固件</p>
 <h2 id="1连接nodemcu到mac上">1.连接nodemcu到Mac上</h2>
 <p>使用<code>ls /dev/tty*</code>或者<code>ls /dev/cu*</code>，查询端口是否可用（即列表中是否包含SLABUSBtoUART）</p>
-<h2 id="2擦出之前固件">2.擦出之前固件</h2>
+<h2 id="2擦除之前固件">2.擦除之前固件</h2>
 <p>运行</p>
 <p><code>esptool.py --port /dev/cu.SLABUSBtoUART eraseflash</code></p>
 <p>或<code>esptool.py --port /dev/tty.SLABUSBtoUART eraseflash</code></p>
-<p>擦除原厂固件,​直到出现</p>
+<p>擦除原厂固件,直到出现</p>
 <p><code>chip erase complete successfully</code></p>
 <h2 id="3烧录固件">3.烧录固件</h2>
 <p>cd 到固件下载目录</p>
@@ -135,7 +136,7 @@
 <h2 id="4连接esp8266">4.连接esp8266</h2>
 <p>​	运行</p>
 <p><code>screen /dev/tty.SLABUSBtoUART 115200 fn=off</code></p>
-<p>​	出现光标后按Nodemcu伤的RST进行硬中断</p>
+<p>​	出现光标后按Nodemcu上的RST进行硬中断</p>
 <p>​	出现MicroPython 说明烧写成功</p>
 <p>​	OSError:[Errno 2] ENOENT（错误表示没有main.py）</p>
 <h2 id="5启用webrepl服务">5.启用WEBREPL服务</h2>
