@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://aidanwangcy.github.io</id>
+    <title>Aidan wang</title>
+    <updated>2019-06-16T03:14:37.307Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://aidanwangcy.github.io"/>
+    <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
+    <subtitle>Pain is motivation.</subtitle>
+    <logo>https://aidanwangcy.github.io/images/avatar.png</logo>
+    <icon>https://aidanwangcy.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, Aidan wang</rights>
+    <entry>
+        <title type="html"><![CDATA[# **MAC下NodeMCU配置MicroPython笔记**]]></title>
+        <id>https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji</id>
+        <link href="https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji">
+        </link>
+        <updated>2019-06-16T03:12:54.000Z</updated>
+        <content type="html"><![CDATA[<p>基础环境搭建，烧录MicroPython固件，以及进入命令</p>
+<h2 id="环境准备">环境准备：</h2>
+<p><strong>安装esptool：</strong></p>
+<p><code>pip3 install esptool</code></p>
+<p><strong>需要使用WebREPL client for MicroPython：</strong></p>
+<p><a href="https://github.com/micropython/webrepl">WebREPL</a>
+​
+下载或clone项目到本地</p>
+<p><strong>安装nodemcu驱动：</strong></p>
+<p><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">nodemcu驱动</a>
+​
+下载对应驱动（正常驱动可能识别不了需要安装传统版本，如遇到不能使用，请到-系统偏好设置-安全与隐私 中选择允许）</p>
+<p><strong>下载固件：</strong></p>
+<p><a href="https://micropython.org/download">MicroPython固件</a>下载对应固件</p>
+<h2 id="1连接nodemcu到mac上">1.连接nodemcu到Mac上</h2>
+<p>使用<code>ls /dev/tty*</code>或者<code>ls /dev/cu*</code>，查询端口是否可用（即列表中是否包含SLABUSBtoUART）</p>
+<h2 id="2擦出之前固件">2.擦出之前固件</h2>
+<p>运行</p>
+<p><code>esptool.py --port /dev/cu.SLABUSBtoUART eraseflash</code></p>
+<p>或<code>esptool.py --port /dev/tty.SLABUSBtoUART eraseflash</code></p>
+<p>擦除原厂固件,​直到出现</p>
+<p><code>chip erase complete successfully</code></p>
+<h2 id="3烧录固件">3.烧录固件</h2>
+<p>cd 到固件下载目录</p>
+<p>使用命令</p>
+<p><code>esptool.py --port /dev/tty.SLABUSBtoUART --baud 115200 writeflash --flashsize=detect -fm dio 0 esp8266-20190125-v1.10.bin</code></p>
+<p>（其中esp8266-20190125-v1.10.bin为固件名，单独的esp8266模块可省略-fm dio 0）</p>
+<h2 id="4连接esp8266">4.连接esp8266</h2>
+<p>​	运行</p>
+<p><code>screen /dev/tty.SLABUSBtoUART 115200 fn=off</code></p>
+<p>​	出现光标后按Nodemcu伤的RST进行硬中断</p>
+<p>​	出现MicroPython 说明烧写成功</p>
+<p>​	OSError:[Errno 2] ENOENT（错误表示没有main.py）</p>
+<h2 id="5启用webrepl服务">5.启用WEBREPL服务</h2>
+<p>​	输入
+<code>import webreplsetup</code>,会要求你确认是否启用，输入E启用，输入D禁用</p>
+<p>​	设置网密码后重启</p>
+<h2 id="6使用webrepl进行文件写入及管理">6.使用WEBREPL进行文件写入及管理</h2>
+<p>​	连接NodeMCU自己的ap，ssid为MicroPython-******，password为micropythonN</p>
+<p>​	打开下载的webrepl包中webrepl.html文件</p>
+<p>​	点击左上角connect连接成功后即可进行编辑或上传文件</p>
+<hr>
+<h1 id="一个设置和连接wifi的demo">一个设置和连接wifi的demo</h1>
+<pre><code class="language-python">import network
+
+def doconnect():
+​    wlan = network.WLAN(network.STAIF)
+​    wlan.active(True)
+​    if not wlan.isconnected():
+​        print('connecting to network...')
+​        wlan.connect('MERCURY20C2', '66668888')
+​        while not wlan.isconnected():
+​            pass
+​    print('connect network config:', wlan.ifconfig())
+​    print(&quot;Connect AP done!&quot;)
+
+def setAP():
+​    ap = network.WLAN(network.APIF)
+​    ap.active(True)
+​    ap.config(essid='MicroPy', password='66668888')
+​    print('AP config:', ap.ifconfig())
+​    print('Set AP done!')
+
+if name == 'main':
+​    print('Hello')
+​    doconnect()
+​    set_AP()
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://aidanwangcy.github.io/post/hello-gridea</id>
+        <link href="https://aidanwangcy.github.io/post/hello-gridea">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
