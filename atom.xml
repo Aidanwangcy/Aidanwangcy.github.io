@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan wang</title>
-    <updated>2019-06-22T02:46:38.862Z</updated>
+    <updated>2019-06-25T03:29:52.825Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://aidanwangcy.github.io/images/avatar.png</logo>
     <icon>https://aidanwangcy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Aidan wang</rights>
+    <entry>
+        <title type="html"><![CDATA[c# chart控件的使用]]></title>
+        <id>https://aidanwangcy.github.io/post/c-chart-kong-jian-de-shi-yong</id>
+        <link href="https://aidanwangcy.github.io/post/c-chart-kong-jian-de-shi-yong">
+        </link>
+        <updated>2019-06-25T02:33:30.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>在项目里制作一个实时显示激光位置的坐标图</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>在项目里制作一个实时显示激光位置的坐标图</strong></p>
+<!--more-->
+<p>拖入chart控件</p>
+<p>需要在数据进来的位置新建Series，ChartArea</p>
+<pre><code class="language-c#">	viewer.Series.Clear();//清空默认曲线
+	Series series1 = new Series (&quot;xy&quot;);//new一个新曲线
+	series1.ChartType = SeriesChartType.Point;//曲线类型选择point
+	series1.Points.AddXY(Convert.ToSingle(strXvalue), Convert.ToSingle(strYvalue));添加接收到的数据到曲线上
+	series1.MarkerSize = Convert.ToInt32(strLaser)/1000;//设置曲线点的大小，根据激光强度
+	viewer.ChartAreas[0].AxisX.MajorGrid.Interval = 2;//设置横轴网格间隔为2
+	viewer.Series.Add(series1);//把曲线添加到图表上
+</code></pre>
+<p>其他选项可以在属性设置中设置</p>
+<p>最重要的就是：</p>
+<p>ChartArea//图标区</p>
+<p>Series//曲线</p>
+<p>Legends//图例</p>
+<p><img src="https://aidanwangcy.github.io/post-images/1561433366718.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MAC下NodeMCU配置MicroPython笔记]]></title>
         <id>https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji</id>
