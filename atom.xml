@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan wang</title>
-    <updated>2019-06-26T05:35:54.559Z</updated>
+    <updated>2019-06-26T05:43:13.751Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -16,20 +16,27 @@
         <link href="https://aidanwangcy.github.io/post/numpy-zhong-tile-han-shu">
         </link>
         <updated>2019-06-26T05:04:43.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>功能：重复A，B次</strong></p>
+        <summary type="html"><![CDATA[<p><strong>功能：把数组沿各个方向复制</strong></p>
 ]]></summary>
-        <content type="html"><![CDATA[<p><strong>功能：重复A，B次</strong></p>
+        <content type="html"><![CDATA[<p><strong>功能：把数组沿各个方向复制</strong></p>
 <!--more-->
-<p>AB可以是int也可以是元组</p>
+<p>函数格式tile(A,reps)</p>
+<p>A和reps都是array_like</p>
+<p>A的类型众多，几乎所有类型都可以：array，list，tuple，dict，matrix以及基本数据类型int，string，float以及bool类型</p>
+<p>reps的类型也很多，可以是tuple，list，dict，array，int，bool。但不可以是float，string，matrix类型。</p>
+<p>返回的是数组类型</p>
+<hr>
 <pre><code class="language-python">&gt;&gt;&gt; numpy.tile([1,2], 4)
 array([1, 2, 1, 2, 1, 2, 1, 2])
-#以一个纬度重复[1,2]4次
+# 以一个纬度重复[1,2]4次
+# 重复本身数组四次
 
 &gt;&gt;&gt; numpy.tile([1,2], (3,4))
 array([[1, 2, 1, 2, 1, 2, 1, 2],
        [1, 2, 1, 2, 1, 2, 1, 2],
        [1, 2, 1, 2, 1, 2, 1, 2]])
-#以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
+# 以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
+# 二维时第一个数代表行数重复，后一个数代表列数重复
 
 &gt;&gt;&gt; numpy.tile([1,2], (2,3,4))
 array([[[1, 2, 1, 2, 1, 2, 1, 2],
