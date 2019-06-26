@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan wang</title>
-    <updated>2019-06-26T05:11:49.531Z</updated>
+    <updated>2019-06-26T05:35:54.559Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -21,23 +21,24 @@
         <content type="html"><![CDATA[<p><strong>功能：重复A，B次</strong></p>
 <!--more-->
 <p>AB可以是int也可以是元组</p>
-<pre><code class="language-python">&gt;&gt;&gt;import numpy
-&gt;&gt;&gt;numpy.tile([0,0],5)#在列方向上重复[0,0]5次，默认行1次
-array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-&gt;&gt;&gt; numpy.tile([0,0],(1,1))#在列方向上重复[0,0]1次，行1次
-array([[0, 0]])
-&gt;&gt;&gt; numpy.tile([0,0],(2,1))#在列方向上重复[0,0]1次，行2次
-array([[0, 0],
-       [0, 0]])
-&gt;&gt;&gt; numpy.tile([0,0],(3,1))
-array([[0, 0],
-       [0, 0],
-       [0, 0]])
-&gt;&gt;&gt; numpy.tile([0,0],(1,3))#在列方向上重复[0,0]3次，行1次
-array([[0, 0, 0, 0, 0, 0]])
-&gt;&gt;&gt; numpy.tile([0,0],(2,3))#在列方向上重复[0,0]3次，行2次&lt;/span&gt;
-array([[0, 0, 0, 0, 0, 0],
-       [0, 0, 0, 0, 0, 0]])
+<pre><code class="language-python">&gt;&gt;&gt; numpy.tile([1,2], 4)
+array([1, 2, 1, 2, 1, 2, 1, 2])
+#以一个纬度重复[1,2]4次
+
+&gt;&gt;&gt; numpy.tile([1,2], (3,4))
+array([[1, 2, 1, 2, 1, 2, 1, 2],
+       [1, 2, 1, 2, 1, 2, 1, 2],
+       [1, 2, 1, 2, 1, 2, 1, 2]])
+#以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
+
+&gt;&gt;&gt; numpy.tile([1,2], (2,3,4))
+array([[[1, 2, 1, 2, 1, 2, 1, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2]],
+       [[1, 2, 1, 2, 1, 2, 1, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2],
+        [1, 2, 1, 2, 1, 2, 1, 2]]])
+#以三个维度重复[1,2]，第一纬度重复2次，第二纬度重复3次，第三纬度重复4次
 </code></pre>
 ]]></content>
     </entry>
