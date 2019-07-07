@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562484317335">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562484445625">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://aidanwangcy.github.io">
-        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562484317335" class="site-logo">
+        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562484445625" class="site-logo">
         <h1 class="site-title">Aidan wang</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -169,7 +169,7 @@
 <pre><code>smbpasswd -a dazzy
 </code></pre>
 <h3 id="接着就是配置-samba-让它把备份数据路径暴露出去">接着，就是配置 Samba 让它把备份数据路径暴露出去。</h3>
-<pre><code>/etc/samba/smb.conf
+<pre><code class="language-vim">/etc/samba/smb.conf
 #文件最后插入
 #服务名称，会显示在 Time Machine 备份界面
 [Time Machine]
