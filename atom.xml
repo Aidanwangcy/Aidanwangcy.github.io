@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
-    <title>Aidan wang</title>
-    <updated>2019-07-07T09:40:17.763Z</updated>
+    <title>Aidan Wang</title>
+    <updated>2019-07-07T09:41:34.056Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
     <subtitle>Pain is motivation.</subtitle>
     <logo>https://aidanwangcy.github.io/images/avatar.png</logo>
     <icon>https://aidanwangcy.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, Aidan wang</rights>
+    <rights>All rights reserved 2019, Aidan Wang</rights>
     <entry>
         <title type="html"><![CDATA[使用 Linux 搭建 时间胶囊（Time Machine）服务器]]></title>
         <id>https://aidanwangcy.github.io/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi</id>
