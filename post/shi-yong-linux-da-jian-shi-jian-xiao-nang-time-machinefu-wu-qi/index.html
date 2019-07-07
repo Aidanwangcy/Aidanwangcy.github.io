@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562484445625">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562484856934">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://aidanwangcy.github.io">
-        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562484445625" class="site-logo">
+        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562484856934" class="site-logo">
         <h1 class="site-title">Aidan wang</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -118,7 +118,7 @@
             <h2 class="post-title">使用 Linux 搭建 时间胶囊（Time Machine）服务器</h2>
             <div class="post-date">2019-07-07</div>
             
-              <div class="feature-container" style="background-image: url('https://aidanwangcy.github.io/post-images/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi.png')">
+              <div class="feature-container" style="background-image: url('https://aidanwangcy.github.io/post-images/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi.jpg')">
               </div>
             
             <div class="post-content">
@@ -155,7 +155,7 @@
 </code></pre>
 <p>然后点连接。</p>
 <p><img src="https://aidanwangcy.github.io/post-images/1562467606034.png" alt=""></p>
-<h1 id="samba">samba</h1>
+<h1 id="samba未试验成功">samba（未试验成功）</h1>
 <p>发现这个协议 <s>好像更方便</s> 有点难整</p>
 <p>deepin里面自带samba</p>
 <p>（Samba 提供文件共享、 Avahi) 提供服务广播的方式，搭建通过网络进行备份的 Time Machine 备份服务器，实现和 Time Capsule 体验一致的无干预自动备份。</p>
@@ -169,7 +169,7 @@
 <pre><code>smbpasswd -a dazzy
 </code></pre>
 <h3 id="接着就是配置-samba-让它把备份数据路径暴露出去">接着，就是配置 Samba 让它把备份数据路径暴露出去。</h3>
-<pre><code class="language-vim">/etc/samba/smb.conf
+<pre><code class="language-bash">/etc/samba/smb.conf
 #文件最后插入
 #服务名称，会显示在 Time Machine 备份界面
 [Time Machine]
