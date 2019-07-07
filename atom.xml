@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan wang</title>
-    <updated>2019-06-26T05:43:13.751Z</updated>
+    <updated>2019-07-07T02:58:51.954Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://aidanwangcy.github.io/images/avatar.png</logo>
     <icon>https://aidanwangcy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Aidan wang</rights>
+    <entry>
+        <title type="html"><![CDATA[使用 Linux 搭建 时间胶囊（Time Machine）服务器]]></title>
+        <id>https://aidanwangcy.github.io/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi</id>
+        <link href="https://aidanwangcy.github.io/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi">
+        </link>
+        <updated>2019-07-07T02:29:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。</p>
+<!--more-->
+<p>在deepin上搭建一个Time Machine服务器，仍有部分问题需要解决</p>
+<h1 id="1安装需要的软件">1.安装需要的软件</h1>
+<pre><code>sudo apt install netatalk
+</code></pre>
+<p>一个afp服务器软件，其中包含avahi</p>
+<h1 id="2准备文件夹">2.准备文件夹</h1>
+<p>在想要备份的文件夹内新建TimeMachineFolder文件夹</p>
+<h1 id="3设置netatalk">3.设置netatalk</h1>
+<p>首先备份配置文件</p>
+<pre><code>sudo mv /etc/netatalk/AppleVolumes.default  /etc/netatalk/AppleVolumes.default.old
+</code></pre>
+<p>然后创建新配置文件</p>
+<pre><code>sudo touch /etc/netatalk/AppleVolumes.default
+</code></pre>
+<p>使用Vim在文件末尾添加下列语句</p>
+<pre><code>:DEFAULT: options:upriv,usedots
+/home/tm/TimeMachineFolder &quot;My Time Machine&quot; options:tm volsizelimit:102400
+</code></pre>
+<p>注意将第2行的文件夹路径设定为你再第2步中创建的文件夹的路径。</p>
+<p>第二行中的<code>volsizelimit</code>设定了Time Machine将会使用的最大硬盘空间，单位是MB。</p>
+<h1 id="4重启netatalk">4.重启netatalk</h1>
+<pre><code>sudo service netatalk restart
+</code></pre>
+<h1 id="5在mac上连接到time-machine">5.在Mac上连接到Time Machine</h1>
+<p>首先直接尝试在Time Machine中选择这个服务器（会显示在可用磁盘下面，名字显示为第四步中你netatalk设置文件中指定的名字）。</p>
+<p>如果你无法找到，那么打开Finder并按下⌘+K，在弹出来的窗口中，于服务器地址一栏输入afp://IP.of.your.server/，然后点连接。</p>
+<p><img src="https://aidanwangcy.github.io/post-images/1562467606034.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[numpy中tile函数]]></title>
         <id>https://aidanwangcy.github.io/post/numpy-zhong-tile-han-shu</id>
@@ -90,7 +129,8 @@ array([[[1, 2, 1, 2, 1, 2, 1, 2],
 <p><img src="https://aidanwangcy.github.io/post-images/1560669367913.png" alt=""></p>
 <h2 id="环境准备">环境准备：</h2>
 <p><strong>安装esptool：</strong></p>
-<p><code>pip3 install esptool</code></p>
+<pre><code>pip3 install esptool
+</code></pre>
 <p><strong>需要使用WebREPL client for MicroPython：</strong></p>
 <p><a href="https://github.com/micropython/webrepl">WebREPL</a>
 ​
@@ -102,27 +142,41 @@ array([[[1, 2, 1, 2, 1, 2, 1, 2],
 <p><strong>下载固件：</strong></p>
 <p><a href="https://micropython.org/download">MicroPython固件</a>下载对应固件</p>
 <h2 id="1连接nodemcu到mac上">1.连接nodemcu到Mac上</h2>
-<p>使用<code>ls /dev/tty*</code>或者<code>ls /dev/cu*</code>，查询端口是否可用（即列表中是否包含SLABUSBtoUART）</p>
+<p>使用</p>
+<pre><code>ls /dev/tty*
+</code></pre>
+<p>或者</p>
+<pre><code>ls /dev/cu*
+</code></pre>
+<p>查询端口是否可用（即列表中是否包含SLABUSBtoUART）</p>
 <h2 id="2擦除之前固件">2.擦除之前固件</h2>
 <p>运行</p>
-<p><code>esptool.py --port /dev/cu.SLABUSBtoUART eraseflash</code></p>
-<p>或<code>esptool.py --port /dev/tty.SLABUSBtoUART eraseflash</code></p>
+<pre><code>esptool.py --port /dev/cu.SLABUSBtoUART eraseflash
+</code></pre>
+<p>或</p>
+<pre><code>esptool.py --port /dev/tty.SLABUSBtoUART eraseflash
+</code></pre>
 <p>擦除原厂固件,直到出现</p>
-<p><code>chip erase complete successfully</code></p>
+<pre><code>chip erase complete successfully
+</code></pre>
 <h2 id="3烧录固件">3.烧录固件</h2>
 <p>cd 到固件下载目录</p>
 <p>使用命令</p>
-<p><code>esptool.py --port /dev/tty.SLABUSBtoUART --baud 115200 writeflash --flashsize=detect -fm dio 0 esp8266-20190125-v1.10.bin</code></p>
+<pre><code>esptool.py --port /dev/tty.SLABUSBtoUART --baud 115200 writeflash --flashsize=detect -fm dio 0 esp8266-20190125-v1.10.bin
+</code></pre>
 <p>（其中esp8266-20190125-v1.10.bin为固件名，单独的esp8266模块可省略-fm dio 0）</p>
 <h2 id="4连接esp8266">4.连接esp8266</h2>
 <p>​	运行</p>
-<p><code>screen /dev/tty.SLABUSBtoUART 115200 fn=off</code></p>
+<pre><code>screen /dev/tty.SLABUSBtoUART 115200 fn=off
+</code></pre>
 <p>​	出现光标后按Nodemcu上的RST进行硬中断</p>
 <p>​	出现MicroPython 说明烧写成功</p>
 <p>​	OSError:[Errno 2] ENOENT（错误表示没有main.py）</p>
 <h2 id="5启用webrepl服务">5.启用WEBREPL服务</h2>
-<p>​	输入
-<code>import webreplsetup</code>,会要求你确认是否启用，输入E启用，输入D禁用</p>
+<p>​	输入</p>
+<pre><code>import webreplsetup
+</code></pre>
+<p>会要求你确认是否启用，输入E启用，输入D禁用</p>
 <p>​	设置网密码后重启</p>
 <h2 id="6使用webrepl进行文件写入及管理">6.使用WEBREPL进行文件写入及管理</h2>
 <p>​	连接NodeMCU自己的ap，ssid为MicroPython-******，password为micropythonN</p>
@@ -155,38 +209,6 @@ if name == 'main':
 ​    doconnect()
 ​    setAP()
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://aidanwangcy.github.io/post/hello-gridea</id>
-        <link href="https://aidanwangcy.github.io/post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
