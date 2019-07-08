@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>使用 Linux 搭建 时间胶囊（Time Machine）服务器 | Aidan Wang</title>
+<title>使用 Linux - deepin 搭建 时间胶囊（Time Machine）服务器 | Aidan Wang</title>
 <meta name="description" content="Pain is motivation.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562492491240">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562559563136">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://aidanwangcy.github.io">
-        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562492491240" class="site-logo">
+        <img src="https://aidanwangcy.github.io/images/avatar.png?v=1562559563136" class="site-logo">
         <h1 class="site-title">Aidan Wang</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -115,7 +115,7 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">使用 Linux 搭建 时间胶囊（Time Machine）服务器</h2>
+            <h2 class="post-title">使用 Linux - deepin 搭建 时间胶囊（Time Machine）服务器</h2>
             <div class="post-date">2019-07-07</div>
             
               <div class="feature-container" style="background-image: url('https://aidanwangcy.github.io/post-images/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi.jpg')">
@@ -125,8 +125,9 @@
               <p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。</p>
 <!--more-->
 <p>在deepin上搭建一个Time Machine服务器，仍有部分问题需要解决</p>
-<h1 id="netatalk">Netatalk</h1>
-<p><strong>问题：</strong></p>
+<h1 id="netatalk-v2">Netatalk v2</h1>
+<p>在下一个博客中该用Netatalk v3
+<strong>问题：</strong></p>
 <ul>
 <li>只能用ipv4</li>
 </ul>
@@ -161,8 +162,10 @@
 <p><img src="https://aidanwangcy.github.io/post-images/1562467606034.png" alt=""></p>
 <hr>
 <h1 id="samba未试验成功">samba（未试验成功）</h1>
-<p><strong>问题：</strong>
-*</p>
+<p><strong>问题：</strong></p>
+<ul>
+<li>必须在局域网下，不能跨网段</li>
+</ul>
 <p>发现这个协议 <s>好像更方便</s> 有点难整</p>
 <p>deepin里面自带samba</p>
 <p>（Samba 提供文件共享、 Avahi) 提供服务广播的方式，搭建通过网络进行备份的 Time Machine 备份服务器，实现和 Time Capsule 体验一致的无干预自动备份。</p>
