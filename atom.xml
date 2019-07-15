@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan Wang</title>
-    <updated>2019-07-08T05:58:24.738Z</updated>
+    <updated>2019-07-15T08:06:19.857Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -16,10 +16,10 @@
         <link href="https://aidanwangcy.github.io/post/netatalk-v3-an-zhuang-deepin">
         </link>
         <updated>2019-07-08T01:30:55.000Z</updated>
-        <summary type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本
+        <summary type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本<br>
 所以使用官网安装方法安装v3版本</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本
+        <content type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本<br>
 所以使用官网安装方法安装v3版本</p>
 ]]></content>
     </entry>
@@ -29,11 +29,11 @@
         <link href="https://aidanwangcy.github.io/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi">
         </link>
         <updated>2019-07-07T02:29:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。
+        <summary type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。<br>
 Netatalk v2</p>
 <p>samba</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。
+        <content type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。<br>
 Netatalk v2</p>
 <p>samba</p>
 ]]></content>

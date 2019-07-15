@@ -7,7 +7,7 @@
 <title>
     MAC下NodeMCU配置MicroPython | Aidan Wang
 </title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1562565464614">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1563177941716">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -47,7 +47,7 @@
     <div class="nav">
         <div class="logo">
             <a href="https://aidanwangcy.github.io">
-                <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1562565464614" alt="">
+                <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1563177941716" alt="">
             </a>
             <div class="site-title">
                 <h1>
@@ -124,7 +124,7 @@
                             <time class="post-time">2019-06-16</time>
                             
                                 <a href="https://aidanwangcy.github.io/tag/gHy9XVpjm" class="post-tag i-tag
-                            i-tag-primary">
+                            i-tag-other_3">
                             #NodeMCU
                         </a>
                                 
@@ -141,12 +141,12 @@
 <pre><code>pip3 install esptool
 </code></pre>
 <p><strong>需要使用WebREPL client for MicroPython：</strong></p>
-<p><a href="https://github.com/micropython/webrepl">WebREPL</a>
-​
+<p><a href="https://github.com/micropython/webrepl">WebREPL</a><br>
+​<br>
 下载或clone项目到本地</p>
 <p><strong>安装nodemcu驱动：</strong></p>
-<p><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">nodemcu驱动</a>
-​
+<p><a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">nodemcu驱动</a><br>
+​<br>
 下载对应驱动（正常驱动可能识别不了需要安装传统版本，如遇到不能使用，请到-系统偏好设置-安全与隐私 中选择允许）</p>
 <p><strong>下载固件：</strong></p>
 <p><a href="https://micropython.org/download">MicroPython固件</a>下载对应固件</p>
@@ -193,30 +193,31 @@
 <p>​	点击左上角connect连接成功后即可进行编辑或上传文件</p>
 <hr>
 <h1 id="一个设置和连接wifi的demo">一个设置和连接wifi的demo</h1>
-<pre><code class="language-python">import network
+<pre><code class="language-python">
+import network
 
 def doconnect():
-​    wlan = network.WLAN(network.STAIF)
-​    wlan.active(True)
-​    if not wlan.isconnected():
-​        print('connecting to network...')
-​        wlan.connect('MERCURY20C2', '66668888')
-​        while not wlan.isconnected():
-​            pass
-​    print('connect network config:', wlan.ifconfig())
-​    print(&quot;Connect AP done!&quot;)
+		wlan = network.WLAN(network.STAIF)
+    wlan.active(True)
+    if not wlan.isconnected():
+        print('connecting to network...')
+        wlan.connect('MERCURY20C2', '66668888')
+        while not wlan.isconnected():
+            pass
+    print('connect network config:', wlan.ifconfig())
+    print(&quot;Connect AP done!&quot;)
 
 def setAP():
-​    ap = network.WLAN(network.APIF)
-​    ap.active(True)
-​    ap.config(essid='MicroPy', password='66668888')
-​    print('AP config:', ap.ifconfig())
-​    print('Set AP done!')
+    ap = network.WLAN(network.APIF)
+    ap.active(True)
+    ap.config(essid='MicroPy', password='66668888')
+    print('AP config:', ap.ifconfig())
+    print('Set AP done!')
 
 if name == 'main':
-​    print('Hello')
-​    doconnect()
-​    setAP()
+    print('Hello')
+    doconnect()
+    setAP()
 </code></pre>
 
                                 </div>
