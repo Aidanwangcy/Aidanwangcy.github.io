@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>numpy - tile函数 | Aidan&#39;s Blog</title>
+<title>defer &amp; interface | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1576140677101">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,55 +87,42 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              numpy - tile函数
+              defer &amp; interface
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-06-26 ·
+                · 2019-07-19 ·
               </time>
               
-                <a href="https://aidanwangcy.github.io/tag/DQJCm0VKK" class="post-tag">
-                  # Python
-                </a>
-              
-                <a href="https://aidanwangcy.github.io/tag/tNC7BxuWL" class="post-tag">
-                  # ML
+                <a href="https://aidanwangcy.github.io/tag/PmrkbYejc" class="post-tag">
+                  # Go
                 </a>
               
             </div>
             
-              <div class="post-feature-image" style="background-image: url('https://aidanwangcy.github.io/post-images/numpy-zhong-tile-han-shu.jpeg')">
-              </div>
-            
             <div class="post-content">
-              <p><strong>功能：把数组沿各个方向复制</strong></p>
-<!--more-->
-<p>函数格式tile(A,reps)</p>
-<p>A和reps都是array_like</p>
-<p>A的类型众多，几乎所有类型都可以：array，list，tuple，dict，matrix以及基本数据类型int，string，float以及bool类型</p>
-<p>reps的类型也很多，可以是tuple，list，dict，array，int，bool。但不可以是float，string，matrix类型。</p>
-<p>返回的是数组类型</p>
-<hr>
-<pre><code class="language-python">&gt;&gt;&gt; numpy.tile([1,2], 4)
-array([1, 2, 1, 2, 1, 2, 1, 2])
-# 以一个纬度重复[1,2]4次
-# 重复本身数组四次
-
-&gt;&gt;&gt; numpy.tile([1,2], (3,4))
-array([[1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2]])
-# 以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
-# 二维时第一个数代表行数重复，后一个数代表列数重复
-
-&gt;&gt;&gt; numpy.tile([1,2], (2,3,4))
-array([[[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]],
-       [[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]]])
-#以三个维度重复[1,2]，第一纬度重复2次，第二纬度重复3次，第三纬度重复4次
+              <p><strong>defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
+<!-- more -->
+<p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
+<p>执行顺序为：</p>
+<ul>
+<li>先给返回值赋值</li>
+<li>然后执行defer语句</li>
+<li>之后返回返回值</li>
+</ul>
+<p>defer语句执行顺序类似于栈，后进先出原则。</p>
+<p><strong>interface 接口</strong></p>
+<p>实际上就是一个结构体，包含两个成员。其中一个成员是指向具体数据的指针，另一个成员中包含了类型信息。空接口和带方法的接口略有不同，下面分别是空接口和带方法的接口是使用的数据结构：</p>
+<pre><code class="language-go">struct Eface
+{
+    Type*    type;
+    void*    data;
+};
+struct Iface
+{
+    Itab*    tab;
+    void*    data;
+};
 </code></pre>
 
             </div>
@@ -145,9 +132,9 @@ array([[[1, 2, 1, 2, 1, 2, 1, 2],
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://aidanwangcy.github.io/post/c-chart-kong-jian-de-shi-yong">
+            <a href="https://aidanwangcy.github.io/post/netatalk-v3-an-zhuang-deepin">
               <h3 class="post-title">
-                c# chart控件的使用
+                Netatalk v3 安装 - deepin
               </h3>
             </a>
           </div>
