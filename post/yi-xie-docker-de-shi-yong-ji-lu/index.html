@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1576564559391">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1576636873820">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://aidanwangcy.github.io">
-  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1576564559391" alt="">
+  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1576636873820" alt="">
   </a>
   <h1 class="site-title">
     Aidan&#39;s Blog
@@ -97,10 +97,12 @@
             </div>
             
             <div class="post-content">
-              <p>临时设置源<br>
-docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</p>
-<p>命令：<br>
-docker image ls #列出本地镜像<br>
+              <p>📒：有关Docker的内容命令太多以防忘记</p>
+<!-- more -->
+<h1 id="临时设置源">临时设置源</h1>
+<p>docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</p>
+<h1 id="命令">命令：</h1>
+<p>docker image ls #列出本地镜像<br>
 docker system df #查看镜像、容器、数据卷所占用的空间</p>
 <p>docker run -it --[name] ubuntu /bin/bash #创建并启动一个容器<br>
 -i让容器的标准输入保持打开<br>
@@ -112,9 +114,7 @@ docker system df #查看镜像、容器、数据卷所占用的空间</p>
 docker container stop #停止启动态的容器<br>
 docker container restart #重启容器<br>
 docker stop $(docker container ls -q) #停止所有容器</p>
-<p>进入后台容器：<br>
-docker container ls -a #显示现有容器<br>
-docker exec -it [CONTAINER_ID OR NAME] zsh</p>
+<h1 id="保存当前container">保存当前container</h1>
 <p>导出快照：<br>
 docker export [CONTAINER_ID OR NAME]&gt; ubuntu.tar<br>
 导入快照：<br>
@@ -122,9 +122,14 @@ cat ubuntu.tar | docker import - PATH/ubuntu</p>
 <p>删除容器：<br>
 docker container rm [CONTAINER_ID OR NAME] #删除一个处于终止状态的容器<br>
 docker container prune #清除全部终止容器</p>
+<h1 id="terminal后台控制">terminal后台控制</h1>
+<p>进入后台容器：<br>
+docker container ls -a #显示现有容器<br>
+docker exec -it [CONTAINER_ID OR NAME] zsh</p>
 <p>control + d #终止容器<br>
 control + p/q #退出容器而不终止<br>
 control + c #停止内部程序</p>
+<h1 id="提交docker镜像">提交Docker镜像</h1>
 <p>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>
 OPTIONS说明：<br>
 -a :提交的镜像作者；<br>
@@ -134,6 +139,7 @@ OPTIONS说明：<br>
 <p>列出后台任务<br>
 jobs -l<br>
 kill +9 -id</p>
+<h1 id="修改container端口">修改container端口</h1>
 <p>重新设定docker映射：<br>
 0）  docker container list –all<br>
 结果中的CONTAINER ID列为容器id<br>
@@ -141,14 +147,16 @@ kill +9 -id</p>
 查看容器hash，&lt;容器id&gt;由步骤0）获得<br>
 2）  docker stop &lt;容器id&gt;<br>
 停止运行中的容器<br>
-3） vim /var/lib/docker/containers/[容器hash]/hostconfig.json<br>
+3）  vim /var/lib/docker/containers/[容器hash]/hostconfig.json<br>
 编辑容器配置文件，&lt;容器hash&gt;由步骤1）获得<br>
 修改PortBindings参数配置，宿主机8001端口映射容器80端口示例：<br>
-“PortBindings”:{“80/tcp”:[{“HostIp”:””,”HostPort”:”8001″}]},”<br>
-4) systemctl restart docker<br>
+“PortBindings”:{“80/tcp”:[{“HostIp”:””,”HostPort”:”8001″}]},”</p>
+<ol>
+<li>systemctl restart docker<br>
 重新启动docker引擎<br>
 5）docker start &lt;容器id&gt;<br>
-重新启动docker容器</p>
+重新启动docker容器</li>
+</ol>
 
             </div>
           </article>

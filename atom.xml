@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2019-12-17T06:36:01.207Z</updated>
+    <updated>2019-12-18T02:41:19.977Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -16,6 +16,10 @@
         <link href="https://aidanwangcy.github.io/post/yi-xie-docker-de-shi-yong-ji-lu">
         </link>
         <updated>2019-12-12T08:00:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>📒：有关Docker的内容命令太多以防忘记</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>📒：有关Docker的内容命令太多以防忘记</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[defer & interface]]></title>
