@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1576636978020">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1577763762933">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://aidanwangcy.github.io">
-  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1576636978020" alt="">
+  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1577763762933" alt="">
   </a>
   <h1 class="site-title">
     Aidan&#39;s Blog
@@ -97,8 +97,22 @@
             </div>
             
             <div class="post-content">
-              <p>📒：有关Docker的内容命令太多以防忘记</p>
+              <p>打算大范围使用docker来搭建环境<br>
+📒：有关Docker的内容命令太多以防忘记</p>
 <!-- more -->
+<p>--2019-12-31更新--<br>
+年末更新：<br>
+发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code><br>
+原因是：<br>
+<code>apparmor</code>这个系统安全组件阻止了<br>
+可以通过<code>dmesg | tail</code>来查看，会出现<code>apparmor=&quot;DENIED&quot;</code><br>
+发现github上有相应的issue，解决方法我认为最好的是在run container的时候添加选项不使用apparmor<br>
+<code>--security-opt apparmor=unconfined</code><br>
+但可能最新版本的deepin已经取消使用这个组件，等开学来了给实验室电脑重新安装一下试试<br>
+参考：https://github.com/docker/for-linux/issues/413<br>
+举个🍍：<br>
+<code>docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data --name portainer --security-opt apparmor=unconfined portainer/portainer</code><br>
+使用ip+9000，又可以愉快的使用portainer了。</p>
 <h1 id="临时设置源">临时设置源</h1>
 <p>docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</p>
 <h1 id="命令">命令：</h1>
