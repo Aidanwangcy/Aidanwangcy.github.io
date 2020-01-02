@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1577776414078">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1577955001226">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://aidanwangcy.github.io">
-  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1577776414078" alt="">
+  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1577955001226" alt="">
   </a>
   <h1 class="site-title">
     Aidan&#39;s Blog
@@ -127,61 +127,61 @@
 <code>docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data --name portainer --security-opt apparmor=unconfined portainer/portainer</code><br>
 使用ip+9000，又可以愉快的使用portainer了。</p>
 <h1 id="临时设置源">临时设置源</h1>
-<p>docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</p>
+<p><code>docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</code></p>
 <h1 id="命令">命令：</h1>
-<p>docker image ls #列出本地镜像<br>
-docker system df #查看镜像、容器、数据卷所占用的空间</p>
-<p>docker run -it --[name] ubuntu /bin/bash #创建并启动一个容器<br>
+<p><code>docker image ls</code> #列出本地镜像<br>
+<code>docker system df</code> #查看镜像、容器、数据卷所占用的空间</p>
+<p><code>docker run -it --[name] ubuntu /bin/bash</code> #创建并启动一个容器<br>
 -i让容器的标准输入保持打开<br>
 -t分配一个伪终端<br>
 -d后台运行参数<br>
 --[name]命名</p>
-<p>docker rename [CONTAINER_ID OR NAME] 新容器名称</p>
-<p>docker container start #启动终止态的容器<br>
-docker container stop #停止启动态的容器<br>
-docker container restart #重启容器<br>
-docker stop $(docker container ls -q) #停止所有容器</p>
+<p><code>docker rename [CONTAINER_ID OR NAME]</code> 新容器名称</p>
+<p><code>docker container start</code> #启动终止态的容器<br>
+<code>docker container stop</code> #停止启动态的容器<br>
+<code>docker container restart</code> #重启容器<br>
+<code>docker stop $(docker container ls -q)</code> #停止所有容器</p>
 <h1 id="保存当前container">保存当前container</h1>
 <p>导出快照：<br>
-docker export [CONTAINER_ID OR NAME]&gt; ubuntu.tar<br>
+<code>docker export [CONTAINER_ID OR NAME]&gt; ubuntu.tar</code><br>
 导入快照：<br>
-cat ubuntu.tar | docker import - PATH/ubuntu</p>
+<code>cat ubuntu.tar | docker import - PATH/ubuntu</code></p>
 <p>删除容器：<br>
-docker container rm [CONTAINER_ID OR NAME] #删除一个处于终止状态的容器<br>
-docker container prune #清除全部终止容器</p>
+<code>docker container rm [CONTAINER_ID OR NAME]</code> #删除一个处于终止状态的容器<br>
+<code>docker container prune</code> #清除全部终止容器</p>
 <h1 id="terminal后台控制">terminal后台控制</h1>
 <p>进入后台容器：<br>
-docker container ls -a #显示现有容器<br>
-docker exec -it [CONTAINER_ID OR NAME] zsh</p>
+<code>docker container ls -a</code> #显示现有容器<br>
+<code>docker exec -it [CONTAINER_ID OR NAME] zsh</code></p>
 <p>control + d #终止容器<br>
 control + p/q #退出容器而不终止<br>
 control + c #停止内部程序</p>
 <h1 id="提交docker镜像">提交Docker镜像</h1>
-<p>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]<br>
+<p><code>docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</code><br>
 OPTIONS说明：<br>
 -a :提交的镜像作者；<br>
 -c :使用Dockerfile指令来创建镜像；<br>
 -m :提交时的说明文字；<br>
 -p :在commit时，将容器暂停</p>
 <p>列出后台任务<br>
-jobs -l<br>
-kill +9 -id</p>
+<code>jobs -l</code><br>
+<code>kill +9 -id</code></p>
 <h1 id="修改container端口">修改container端口</h1>
 <p>重新设定docker映射：<br>
-0）  docker container list –all<br>
+0）  <code>docker container list –all</code><br>
 结果中的CONTAINER ID列为容器id<br>
-1）  docker inspect &lt;容器id&gt;   |  grep Id<br>
+1）  <code>docker inspect &lt;容器id&gt;   |  grep Id</code><br>
 查看容器hash，&lt;容器id&gt;由步骤0）获得<br>
-2）  docker stop &lt;容器id&gt;<br>
+2）  <code>docker stop &lt;容器id&gt;</code><br>
 停止运行中的容器<br>
-3）  vim /var/lib/docker/containers/[容器hash]/hostconfig.json<br>
+3）  <code>vim /var/lib/docker/containers/[容器hash]/hostconfig.json</code><br>
 编辑容器配置文件，&lt;容器hash&gt;由步骤1）获得<br>
 修改PortBindings参数配置，宿主机8001端口映射容器80端口示例：<br>
 “PortBindings”:{“80/tcp”:[{“HostIp”:””,”HostPort”:”8001″}]},”</p>
 <ol>
-<li>systemctl restart docker<br>
+<li><code>systemctl restart docker</code><br>
 重新启动docker引擎<br>
-5）docker start &lt;容器id&gt;<br>
+5）<code>docker start &lt;容器id&gt;</code><br>
 重新启动docker容器</li>
 </ol>
 
