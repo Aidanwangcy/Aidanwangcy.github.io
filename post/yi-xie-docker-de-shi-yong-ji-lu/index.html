@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1578021277684">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1578029552641">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://aidanwangcy.github.io">
-  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1578021277684" alt="">
+  <img class="avatar" src="https://aidanwangcy.github.io/images/avatar.png?v=1578029552641" alt="">
   </a>
   <h1 class="site-title">
     Aidan&#39;s Blog
@@ -112,11 +112,11 @@
 <li>提交Docker镜像</li>
 <li>修改container端口</li>
 </ul>
-<!-- more -->
 <p>--2019-12-31更新--<br>
 年末更新：<br>
-发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code><br>
-原因是：<br>
+发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code></p>
+<!-- more -->
+<p>原因是：<br>
 <code>apparmor</code>这个系统安全组件阻止了<br>
 可以通过<code>dmesg | tail</code>来查看，会出现<code>apparmor=&quot;DENIED&quot;</code><br>
 发现github上有相应的issue，解决方法我认为最好的是在run container的时候添加选项不使用apparmor<br>

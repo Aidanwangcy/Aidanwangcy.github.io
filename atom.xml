@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-01-03T03:14:40.934Z</updated>
+    <updated>2020-01-03T05:32:52.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -38,6 +38,9 @@
 <li>提交Docker镜像</li>
 <li>修改container端口</li>
 </ul>
+<p>--2019-12-31更新--<br>
+年末更新：<br>
+发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code></p>
 ]]></summary>
         <content type="html"><![CDATA[<p>打算大范围使用docker来搭建环境<br>
 📒：有关Docker的内容命令太多以防忘记<br>
@@ -50,6 +53,9 @@
 <li>提交Docker镜像</li>
 <li>修改container端口</li>
 </ul>
+<p>--2019-12-31更新--<br>
+年末更新：<br>
+发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code></p>
 ]]></content>
     </entry>
     <entry>
