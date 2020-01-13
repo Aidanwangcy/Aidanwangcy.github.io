@@ -459,6 +459,7 @@ ul li {
   line-height: 1.375;
   width: 100%;
   overflow: scroll;
+  display: block;
 }
 .gt-fr {
   display: flex;
@@ -1807,15 +1808,7 @@ Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmai
           border-color: #64b587!important;
         }
         
-        .gt-post-content .hljs {
-          background: RGBA(100,181,135,0.14)!important;
-        }
-        
         .gt-post-content code {
-          background: RGBA(100,181,135,0.14)!important;
-        }
-        
-        .gt-post-content pre code {
           background: RGBA(100,181,135,0.14)!important;
         }
          
