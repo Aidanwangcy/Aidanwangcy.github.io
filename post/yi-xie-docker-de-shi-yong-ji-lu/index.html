@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579053494608">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579053805636">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -116,11 +116,13 @@
 可以通过<code>dmesg | tail</code>来查看，会出现<code>apparmor=&quot;DENIED&quot;</code><br>
 发现github上有相应的issue，解决方法我认为最好的是在run container的时候添加选项不使用apparmor<br>
 <code>--security-opt apparmor=unconfined</code><br>
-但可能最新版本的deepin已经取消使用这个组件，等开学来了给实验室电脑重新安装一下试试<br>
-参考：https://github.com/docker/for-linux/issues/413<br>
-举个🍍：<br>
-<code>docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data --name portainer --security-opt apparmor=unconfined portainer/portainer</code><br>
-使用ip+9000，又可以愉快的使用portainer了。</p>
+但可能最新版本的deepin已经取消使用这个组件，等开学来了给实验室电脑重新安装一下试试</p>
+<blockquote>
+<p>参考：https://github.com/docker/for-linux/issues/413</p>
+</blockquote>
+<p>举个🍍：<br>
+<code>docker run -d -p 8000:8000 -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data --name portainer --security-opt apparmor=unconfined portainer/portainer</code></p>
+<p>使用ip+9000，又可以愉快的使用portainer了。</p>
 <h1 id="临时设置源">临时设置源</h1>
 <p><code>docker run hello-world --registry-mirror=https://docker.mirrors.ustc.edu.cn</code></p>
 <h1 id="命令">命令：</h1>
@@ -172,13 +174,11 @@ OPTIONS说明：<br>
 3）  <code>vim /var/lib/docker/containers/[容器hash]/hostconfig.json</code><br>
 编辑容器配置文件，&lt;容器hash&gt;由步骤1）获得<br>
 修改PortBindings参数配置，宿主机8001端口映射容器80端口示例：<br>
-“PortBindings”:{“80/tcp”:[{“HostIp”:””,”HostPort”:”8001″}]},”</p>
-<ol>
-<li><code>systemctl restart docker</code><br>
+“PortBindings”:{“80/tcp”:[{“HostIp”:””,”HostPort”:”8001″}]},”<br>
+4) <code>systemctl restart docker</code><br>
 重新启动docker引擎<br>
 5）<code>docker start &lt;容器id&gt;</code><br>
-重新启动docker容器</li>
-</ol>
+重新启动docker容器</p>
 
                 </div>
             </article>
