@@ -4,7 +4,7 @@
 <meta name="description" content=""/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>使用 Linux - deepin 搭建 Apple 时间机器（Time Machine）服务器 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579053875041">
+<link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579088271515">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -156,9 +156,10 @@ Netatalk v2</p>
 <pre><code>smbpasswd -a dazzy
 </code></pre>
 <h3 id="接着就是配置-samba-让它把备份数据路径暴露出去">接着，就是配置 Samba 让它把备份数据路径暴露出去。</h3>
-<pre><code class="language-bash">/etc/samba/smb.conf
+<pre><code class="language-bash">vim /etc/samba/smb.conf
 #文件最后插入
-#服务名称，会显示在 Time Machine 备份界面
+</code></pre>
+<pre><code class="language-bash">#服务名称，会显示在 Time Machine 备份界面
 [Time Machine]
 #备份数据路径
 path = /data/timemachine
@@ -186,12 +187,14 @@ spotlight = yes
 <pre><code>systemctl enable --now avahi-daemon
 </code></pre>
 <p>参考内容：</p>
+<blockquote>
 <ol>
 <li>https://blog.dazzyd.org/providing-time-machine-on-linux/</li>
 <li>https://blog.51cto.com/penguintux/2318250</li>
 <li>https://drkbl.com/ubuntu-18-samba-time-machine/</li>
 <li>https://kirb.me/2018/03/24/using-samba-as-a-time-machine-network-server.html</li>
 </ol>
+</blockquote>
 
                 </div>
             </article>
