@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-01-22T03:36:57.238Z</updated>
+    <updated>2020-01-22T03:39:44.079Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://aidanwangcy.github.io/post/swiftui-state-yi-ge-yong-lai-xiu-gai-ye-mian-zhuang-tai-de-shen-qi-yu-ju">
         </link>
         <updated>2020-01-22T02:54:56.000Z</updated>
-        <summary type="html"><![CDATA[<p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的只的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
+        <summary type="html"><![CDATA[<p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的值的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的只的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
+        <content type="html"><![CDATA[<p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的值的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
 ]]></content>
     </entry>
     <entry>
