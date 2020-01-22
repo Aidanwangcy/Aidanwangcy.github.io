@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>go:defer &amp; interface | Aidan&#39;s Blog</title>
+<title>SwiftUI: @State 一个用来修改页面状态的神奇语句 | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579663662097">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -87,42 +87,85 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    go:defer &amp; interface
+                    SwiftUI: @State 一个用来修改页面状态的神奇语句
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2019-07-19 ·
+                        · 2020-01-22 ·
                     </time>
                     
-                        <a href="https://aidanwangcy.github.io/tag/PmrkbYejc" class="post-tags">
-                            # Go
+                        <a href="https://aidanwangcy.github.io/tag/PjjV9OCjP" class="post-tags">
+                            # Swift
                         </a>
                     
                 </div>
                 <div class="post-content">
-                    <p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
-<p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
+                    <p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的只的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
 <!-- more -->
-<p>执行顺序为：</p>
-<ul>
-<li>先给返回值赋值</li>
-<li>然后执行defer语句</li>
-<li>之后返回返回值</li>
-</ul>
-<p>defer语句执行顺序类似于栈，后进先出原则。</p>
-<p><strong>interface 接口</strong></p>
-<p>实际上就是一个结构体，包含两个成员。其中一个成员是指向具体数据的指针，另一个成员中包含了类型信息。空接口和带方法的接口略有不同，下面分别是空接口和带方法的接口是使用的数据结构：</p>
-<pre><code class="language-go">struct Eface
-{
-    Type*    type;
-    void*    data;
-};
-struct Iface
-{
-    Itab*    tab;
-    void*    data;
-};
+<h1 id="那状态怎么改变">那状态怎么改变？</h1>
+<p>比如写个按钮</p>
+<pre><code class="language-swift">struct ContentView: View {
+    var count = 0
+    var body: some View {
+        Button(&quot;count: \(count)&quot;) {
+            self.count += 1
+        }
+    }
+}
 </code></pre>
+<p>当点击按钮的时候count加一。但是这个其实是会报错的 struct 是不可变的</p>
+<p>这怎么办呢？<br>
+就可以用到@State</p>
+<pre><code class="language-swift">struct ContentView: View {
+    @State var count = 0
+    var body: some View {
+        Button(&quot;count: \(count)&quot;) {
+            self.count += 1
+        }
+    }
+}
+</code></pre>
+<p>@State使得超出struct本身的限制，动态修改属性的值。这样就能在程序发生变化的时候，更新界面了。</p>
+<h1 id="双向绑定">双向绑定</h1>
+<p>还有个问题就是如果输入框的输入内容改变了，存储输入内容的属性应该如何更新？<br>
+这就需要讲到双向绑定了。当页面的UI发生变化的时候，对应的属性也能随之改变，真正做到页面时状态的函数。<br>
+在 SwiftUI 中使用 <code>$</code>来表示，在属性前面加上<code>$</code>就以为着读取属性的同时只要值改变也会更新属性的值<br>
+举个🍍：</p>
+<pre><code class="language-swift">struct ContentView: View {
+    @State private var name = &quot;&quot;
+    var body: some View {
+        Form {
+            TextField(&quot;Your name&quot;, text: $name)
+            Text(&quot;Hello \(name)&quot;)
+        }
+    }
+}
+</code></pre>
+<p>当你输入值的时候name也会随之变化<br>
+还可以给绑定属性添加动画包装，这样在属性值发生变化时页面的变动会有动画效果，比如下面的🍎，开关打开时，TextField会更平滑的出现：</p>
+<pre><code class="language-swift">Toggle(isOn: $addLoyaltyDetails.animation()) {
+    Text(&quot;Add iDine loyalty card&quot;)
+}
+if addLoyaltyDetails {
+    TextField(&quot;Enter your iDine ID&quot;, text: $loyaltyNumber)
+}
+</code></pre>
+<h1 id="自定义双向绑定">自定义双向绑定</h1>
+<p>举个🥭自定义get set</p>
+<pre><code class="language-swift">struct ContentView: View {
+    @State private var username = &quot;&quot;
+    var body: some View {
+        let binding = Binding(
+            get: { self.username },
+            set: { self.username = $0 }
+        )
+        return VStack {
+            TextField(&quot;Enter your name&quot;, text: binding)
+        }
+    }
+}
+</code></pre>
+<p>好处就是可以在自定义绑定的set和get中添加自己的逻辑，比如对数据的处理，或者先进行额外的操作，再进行set和get</p>
 
                 </div>
             </article>
@@ -131,8 +174,8 @@ struct Iface
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://aidanwangcy.github.io/post/netatalk-v3-an-zhuang-deepin" class="post-title gt-a-link">
-                    Netatalk v3 安装 - deepin
+                <a href="https://aidanwangcy.github.io/post/lesslessseekan-jian-greatergreater" class="post-title gt-a-link">
+                    《See:看见》
                 </a>
             </div>
         

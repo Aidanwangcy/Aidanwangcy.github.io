@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>go:defer &amp; interface | Aidan&#39;s Blog</title>
+<title>Swift | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1579663662097">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -30,11 +30,11 @@
 <script src="media/scripts/index.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -83,87 +83,46 @@
         </div>
     </div>
 </nav>
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    go:defer &amp; interface
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2019-07-19 ·
-                    </time>
-                    
-                        <a href="https://aidanwangcy.github.io/tag/PmrkbYejc" class="post-tags">
-                            # Go
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
-<p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
-<!-- more -->
-<p>执行顺序为：</p>
-<ul>
-<li>先给返回值赋值</li>
-<li>然后执行defer语句</li>
-<li>之后返回返回值</li>
-</ul>
-<p>defer语句执行顺序类似于栈，后进先出原则。</p>
-<p><strong>interface 接口</strong></p>
-<p>实际上就是一个结构体，包含两个成员。其中一个成员是指向具体数据的指针，另一个成员中包含了类型信息。空接口和带方法的接口略有不同，下面分别是空接口和带方法的接口是使用的数据结构：</p>
-<pre><code class="language-go">struct Eface
-{
-    Type*    type;
-    void*    data;
-};
-struct Iface
-{
-    Itab*    tab;
-    void*    data;
-};
-</code></pre>
-
-                </div>
-            </article>
+        <div class="current-tag-container">
+            <h2 class="title gt-c-content-color-first">
+                #Swift
+            </h2>
         </div>
-
+        <div class="post-list-container">
+    <div class="post-inner">
         
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://aidanwangcy.github.io/post/netatalk-v3-an-zhuang-deepin" class="post-title gt-a-link">
-                    Netatalk v3 安装 - deepin
-                </a>
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://aidanwangcy.github.io/post/swiftui-state-yi-ge-yong-lai-xiu-gai-ye-mian-zhuang-tai-de-shen-qi-yu-ju">
+                            <span class="post-title gt-c-content-color-first">SwiftUI: @State 一个用来修改页面状态的神奇语句</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的只的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2020-01-22 ·
+                        </time>
+                        
+                            <a href="https://aidanwangcy.github.io/tag/PjjV9OCjP" class="post-tag">
+                                # Swift
+                            </a>
+                        
+                    </div>
+                </div>
+                
             </div>
         
-
-        
-            
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '36a0b20ccd06c3234ff4',
-    clientSecret: 'cdec57f5b537c9390995636abc7ffdb0c17dd5bd',
-    repo: 'Aidanwangcy.github.io',
-    owner: 'Aidanwangcy',
-    admin: ['Aidanwangcy'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-            
-
-            
-        
+    </div>
+</div>
+        <div class="pagination-container">
+    
+    
+</div>
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">Pain is motivation.</div>
@@ -196,7 +155,6 @@ struct Iface
 <script>
     hljs.initHighlightingOnLoad()
 </script>
-
 
     </div>
 </div>
