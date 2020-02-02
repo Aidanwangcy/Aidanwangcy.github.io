@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>numpy - tile函数 | Aidan&#39;s Blog</title>
+<title>Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1580620238371">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -30,11 +30,11 @@
 <script src="media/scripts/index.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <nav class="navbar navbar-expand-lg">
+    <div class="main-content">
+        <nav class="navbar navbar-expand-lg">
     <div class="navbar-brand">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -83,97 +83,50 @@
         </div>
     </div>
 </nav>
-    <div class="post-container">
-        <div class="post-detail gt-bg-theme-color-second">
-            <article class="gt-post-content">
-                <h2 class="post-title">
-                    numpy - tile函数
-                </h2>
-                <div class="post-info">
-                    <time class="post-time gt-c-content-color-first">
-                        · 2019-06-26 ·
-                    </time>
-                    
-                        <a href="https://aidanwangcy.github.io/tag/DQJCm0VKK" class="post-tags">
-                            # Python
-                        </a>
-                    
-                        <a href="https://aidanwangcy.github.io/tag/tNC7BxuWL" class="post-tags">
-                            # ML
-                        </a>
-                    
-                </div>
-                <div class="post-content">
-                    <p><strong>功能：把数组沿各个方向复制</strong></p>
-<!--more-->
-<p>函数格式tile(A,reps)</p>
-<p>A和reps都是array_like</p>
-<p>A的类型众多，几乎所有类型都可以：array，list，tuple，dict，matrix以及基本数据类型int，string，float以及bool类型</p>
-<p>reps的类型也很多，可以是tuple，list，dict，array，int，bool。但不可以是float，string，matrix类型。</p>
-<p>返回的是数组类型</p>
-<hr>
-<pre><code class="language-python">&gt;&gt;&gt; numpy.tile([1,2], 4)
-array([1, 2, 1, 2, 1, 2, 1, 2])
-# 以一个纬度重复[1,2]4次
-# 重复本身数组四次
 
-&gt;&gt;&gt; numpy.tile([1,2], (3,4))
-array([[1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2]])
-# 以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
-# 二维时第一个数代表行数重复，后一个数代表列数重复
-
-&gt;&gt;&gt; numpy.tile([1,2], (2,3,4))
-array([[[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]],
-       [[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]]])
-#以三个维度重复[1,2]，第一纬度重复2次，第二纬度重复3次，第三纬度重复4次
-</code></pre>
-
-                </div>
-            </article>
-        </div>
-
+        <div class="post-list-container">
+    <div class="post-inner">
         
-            <div class="next-post">
-                <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://aidanwangcy.github.io/post/c-chart-kong-jian-de-shi-yong" class="post-title gt-a-link">
-                    c# chart控件的使用
-                </a>
+            <div class="post gt-bg-theme-color-second">
+                <div class="post-left">
+                    <div>
+                        
+                        <a href="https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji">
+                            <span class="post-title gt-c-content-color-first">MAC下NodeMCU配置MicroPython</span>
+                        </a>
+                    </div>
+                    <div class="gt-post-content post-abstract gt-c-content-color-second">
+                        <p><strong>基础环境搭建，烧录MicroPython固件，以及进入命令</strong></p>
+
+                    </div>
+                    <div class="post-info">
+                        <time class="post-time gt-c-content-color-first">
+                            发布于 · 2019-06-16 ·
+                        </time>
+                        
+                            <a href="https://aidanwangcy.github.io/tag/gHy9XVpjm" class="post-tag">
+                                # NodeMCU
+                            </a>
+                        
+                    </div>
+                </div>
+                
+                    <a href="https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji" class="post-feature-image"
+                       style="background-image: url('https://cdn.jsdelivr.net/gh/Aidanwangcy/FigureBed@master/img/mac-xia-nodemcu-pei-zhi-micropython-bi-ji.jpg')">
+                    </a>
+                
             </div>
         
+    </div>
+</div>
 
-        
-            
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <div class="pagination-container">
+    
+        <a href="https://aidanwangcy.github.io/" class="prev-page gt-a-link">上一页</a>
+    
+    
+</div>
 
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '36a0b20ccd06c3234ff4',
-    clientSecret: 'cdec57f5b537c9390995636abc7ffdb0c17dd5bd',
-    repo: 'Aidanwangcy.github.io',
-    owner: 'Aidanwangcy',
-    admin: ['Aidanwangcy'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-            
-
-            
-        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">Pain is motivation.</div>
@@ -206,7 +159,6 @@ array([[[1, 2, 1, 2, 1, 2, 1, 2],
 <script>
     hljs.initHighlightingOnLoad()
 </script>
-
 
     </div>
 </div>

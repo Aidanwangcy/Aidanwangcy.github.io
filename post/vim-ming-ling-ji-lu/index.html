@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>numpy - tile函数 | Aidan&#39;s Blog</title>
+<title>Vim命令记录 | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://aidanwangcy.github.io/favicon.ico?v=1580620238371">
 <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://aidanwangcy.github.io/styles/main.css">
@@ -87,52 +87,74 @@
         <div class="post-detail gt-bg-theme-color-second">
             <article class="gt-post-content">
                 <h2 class="post-title">
-                    numpy - tile函数
+                    Vim命令记录
                 </h2>
                 <div class="post-info">
                     <time class="post-time gt-c-content-color-first">
-                        · 2019-06-26 ·
+                        · 2020-02-01 ·
                     </time>
-                    
-                        <a href="https://aidanwangcy.github.io/tag/DQJCm0VKK" class="post-tags">
-                            # Python
-                        </a>
-                    
-                        <a href="https://aidanwangcy.github.io/tag/tNC7BxuWL" class="post-tags">
-                            # ML
-                        </a>
                     
                 </div>
                 <div class="post-content">
-                    <p><strong>功能：把数组沿各个方向复制</strong></p>
-<!--more-->
-<p>函数格式tile(A,reps)</p>
-<p>A和reps都是array_like</p>
-<p>A的类型众多，几乎所有类型都可以：array，list，tuple，dict，matrix以及基本数据类型int，string，float以及bool类型</p>
-<p>reps的类型也很多，可以是tuple，list，dict，array，int，bool。但不可以是float，string，matrix类型。</p>
-<p>返回的是数组类型</p>
-<hr>
-<pre><code class="language-python">&gt;&gt;&gt; numpy.tile([1,2], 4)
-array([1, 2, 1, 2, 1, 2, 1, 2])
-# 以一个纬度重复[1,2]4次
-# 重复本身数组四次
-
-&gt;&gt;&gt; numpy.tile([1,2], (3,4))
-array([[1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2],
-       [1, 2, 1, 2, 1, 2, 1, 2]])
-# 以两个维度重复[1,2]，第一纬度重复3次，第二纬度重复4次
-# 二维时第一个数代表行数重复，后一个数代表列数重复
-
-&gt;&gt;&gt; numpy.tile([1,2], (2,3,4))
-array([[[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]],
-       [[1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2],
-        [1, 2, 1, 2, 1, 2, 1, 2]]])
-#以三个维度重复[1,2]，第一纬度重复2次，第二纬度重复3次，第三纬度重复4次
-</code></pre>
+                    <p>vim是Linux下好用的编辑器，但是也需要熟悉使用命令才能 <s>更好装x</s> 提高效率</p>
+<!-- more -->
+<p>vim分成4种模式：</p>
+<ul>
+<li>正常模式（Normal）：启动后进入模式，按<code>:</code>输入命令</li>
+<li>插入模式（Insert）：按<code>i</code>进入，<code>ESC</code>退回到Normal</li>
+<li>可视模式（Visual）：按<code>v</code>,<code>V</code>进入可视模式，类似鼠标操作</li>
+</ul>
+<h1 id="基本操作">基本操作</h1>
+<p><code>i</code>：进入Insert模式可以正常编辑文本<br>
+<code>x</code>：删除当前光标所在的字符<br>
+<code>:wq</code>：保存并推出 （<code>:w</code>保存，后面可加文件名，<code>:q</code>退出）<br>
+<code>dd</code>：剪切当前行<br>
+<code>p</code>：粘贴</p>
+<h2 id="插入">插入</h2>
+<ul>
+<li><code>a</code>：小写a，在光标后插入</li>
+<li><code>o</code>：小写o，在当前行后插入新行</li>
+<li><code>O</code>：大写O，在当前行前插入新行</li>
+<li><code>cw</code>：替换从当前光标所在位置到最后一个字符</li>
+</ul>
+<h2 id="移动光标">移动光标</h2>
+<ul>
+<li><code>0</code>：数字0，光标移动到行首</li>
+<li><code>^</code>：上尖角，光标移动到本行第一个不是空的位置</li>
+<li><code>$</code>：光标移动到行尾</li>
+<li><code>g_</code>光标移动到本行最后一个不是空的位置</li>
+<li><code>/apple</code>：搜索<code>apple</code>字符串（若有多个结果，<code>n</code>跳到下一个）</li>
+</ul>
+<h2 id="复制粘贴">复制/粘贴</h2>
+<ul>
+<li><code>p</code>,<code>P</code>：粘贴，小写是在光标位置之后，大写在光标位置之前</li>
+<li><code>yy</code>：复制当前行，相当于<code>ddP</code></li>
+</ul>
+<h2 id="撤销前进">撤销/前进</h2>
+<ul>
+<li><code>u</code>：撤销</li>
+<li><code>ctrl</code>+<code>r</code>：前进</li>
+</ul>
+<h2 id="文件操作">文件操作</h2>
+<ul>
+<li><code>:e &lt;path/to/file&gt;</code>：打卡设定目录文件</li>
+<li><code>:w</code>：保存当前文件</li>
+<li><code>:saveas &lt;path/to/file&gt;</code>：当前文件另存为到<code>&lt;path/to/file&gt;</code></li>
+<li><code>ZZ</code>或<code>:wq</code>：保存并退出</li>
+<li><code>:q!</code>：强制退出不保存</li>
+<li><code>:qa!</code>：强制退出全部正在编辑的文件</li>
+<li><code>:bn</code>,<code>:bp</code>：同时打开多个文件时切换下一个或上一个</li>
+<li><code>:n</code>：到下个文件</li>
+</ul>
+<h1 id="其他操作">其他操作</h1>
+<p><code>.</code>：小数点，代表上一条命令<br>
+<code>N</code>+<code>command</code>：数字+命令 表示重复某个命令N次，使用上面的小数点，eg<code>3.</code>：表示重复条命令3次，<code>3dd</code>：表示删除3行</p>
+<h1 id="分屏-split-和-vsplit">分屏 <code>:split</code> 和 <code>:vsplit</code></h1>
+<p><code>:split</code>：创建分屏<br>
+<code>:vsplit</code>：创建垂直分屏<br>
+ctrl+<code>w</code>+方向：根据方向分屏<br>
+ctrl+<code>w</code>+<code>_</code>：最大化<br>
+ctrl+<code>w</code>+<code>+</code>：增加尺寸</p>
 
                 </div>
             </article>
@@ -141,8 +163,8 @@ array([[[1, 2, 1, 2, 1, 2, 1, 2],
         
             <div class="next-post">
                 <div class="next gt-c-content-color-first">下一篇</div>
-                <a href="https://aidanwangcy.github.io/post/c-chart-kong-jian-de-shi-yong" class="post-title gt-a-link">
-                    c# chart控件的使用
+                <a href="https://aidanwangcy.github.io/post/swiftui-@state" class="post-title gt-a-link">
+                    SwiftUI: @State 一个用来修改页面状态的神奇语句
                 </a>
             </div>
         

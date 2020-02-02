@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aidanwangcy.github.io</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-01-30T12:51:10.249Z</updated>
+    <updated>2020-02-02T05:10:58.574Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aidanwangcy.github.io"/>
     <link rel="self" href="https://aidanwangcy.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://aidanwangcy.github.io/images/avatar.png</logo>
     <icon>https://aidanwangcy.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aidan&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Vim命令记录]]></title>
+        <id>https://aidanwangcy.github.io/post/vim-ming-ling-ji-lu</id>
+        <link href="https://aidanwangcy.github.io/post/vim-ming-ling-ji-lu">
+        </link>
+        <updated>2020-02-01T09:55:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>vim是Linux下好用的编辑器，但是也需要熟悉使用命令才能 <s>更好装x</s> 提高效率</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>vim是Linux下好用的编辑器，但是也需要熟悉使用命令才能 <s>更好装x</s> 提高效率</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SwiftUI: @State 一个用来修改页面状态的神奇语句]]></title>
         <id>https://aidanwangcy.github.io/post/swiftui-@state</id>
@@ -137,17 +148,6 @@ Netatalk v2</p>
         <summary type="html"><![CDATA[<p><strong>在项目里制作一个实时显示激光位置的坐标图</strong></p>
 ]]></summary>
         <content type="html"><![CDATA[<p><strong>在项目里制作一个实时显示激光位置的坐标图</strong></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MAC下NodeMCU配置MicroPython]]></title>
-        <id>https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji</id>
-        <link href="https://aidanwangcy.github.io/post/mac-xia-nodemcu-pei-zhi-micropython-bi-ji">
-        </link>
-        <updated>2019-06-16T03:12:54.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>基础环境搭建，烧录MicroPython固件，以及进入命令</strong></p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>基础环境搭建，烧录MicroPython固件，以及进入命令</strong></p>
 ]]></content>
     </entry>
 </feed>
