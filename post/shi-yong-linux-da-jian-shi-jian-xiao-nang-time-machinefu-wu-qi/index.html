@@ -7,7 +7,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>使用 Linux - deepin 搭建 Apple 时间机器（Time Machine）服务器 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://blog.popoup.top/favicon.ico?v=1583336488421">
+<link rel="shortcut icon" href="https://blog.popoup.top/favicon.ico?v=1583550208822">
 <link rel="stylesheet" href="https://blog.popoup.top/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -59,7 +59,8 @@
           
             <li class="nav-item ">
               
-                <a href="/">
+              
+                <a href="/" target="_self">
                   <i class="fa fa-home"></i> 首页
                 </a>
               
@@ -67,7 +68,8 @@
           
             <li class="nav-item ">
               
-                <a href="/archives">
+              
+                <a href="/archives" target="_self">
                   <i class="fa fa-archive"></i> 归档
                 </a>
               
@@ -75,7 +77,8 @@
           
             <li class="nav-item ">
               
-                <a href="/tags">
+              
+                <a href="/tags" target="_self">
                   <i class="fa fa-tags"></i> 标签
                 </a>
               
@@ -83,7 +86,8 @@
           
             <li class="nav-item ">
               
-                <a href="/post/about">
+              
+                <a href="/post/about" target="_self">
                   <i class="fa fa-user"></i> 关于
                 </a>
               
@@ -148,7 +152,7 @@
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://blog.popoup.top/images/avatar.png"/>
     <p class="site-author-name">Aidan&#39;s Blog</p>
-    <p class="site-description right-motion"></p>
+    <p class="site-description right-motion">  </p>
   </div>
   <div class="sidebar-item side-item-stat right-motion">
     <div class="sidebar-item-box">
@@ -272,7 +276,7 @@ document.addEventListener('scroll', function(e) {
   if (lList.length <= 0) {
     return;
   }
-  let scrollTop = document.scrollingElement.scrollTop;
+  let scrollTop = document.scrollingElement.scrollTop + 10;
   let dir;
 
   if (lastTop - scrollTop > 0) {
@@ -503,6 +507,12 @@ window.addEventListener('load', function() {
       <span>945<span class="pc-show">字数</span></span>
     </span>
     
+      <span id="/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
@@ -643,7 +653,7 @@ spotlight = yes
   </div>
 </div>
               
-                \
+                
                   
                     <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
