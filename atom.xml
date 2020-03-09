@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.popoup.top</id>
+    <id>https://https://blog.popoup.top</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-03-09T03:04:36.356Z</updated>
+    <updated>2020-03-09T04:07:30.445Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.popoup.top"/>
-    <link rel="self" href="https://blog.popoup.top/atom.xml"/>
+    <link rel="alternate" href="https://https://blog.popoup.top"/>
+    <link rel="self" href="https://https://blog.popoup.top/atom.xml"/>
     <subtitle>Pain is motivation.</subtitle>
-    <logo>https://blog.popoup.top/images/avatar.png</logo>
-    <icon>https://blog.popoup.top/favicon.ico</icon>
+    <logo>https://https://blog.popoup.top/images/avatar.png</logo>
+    <icon>https://https://blog.popoup.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Aidan&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[Vim命令记录]]></title>
-        <id>https://blog.popoup.top/post/vim-ming-ling-ji-lu/</id>
-        <link href="https://blog.popoup.top/post/vim-ming-ling-ji-lu/">
+        <id>https://https://blog.popoup.top/post/vim-ming-ling-ji-lu/</id>
+        <link href="https://https://blog.popoup.top/post/vim-ming-ling-ji-lu/">
         </link>
         <updated>2020-02-01T09:55:21.000Z</updated>
         <summary type="html"><![CDATA[<p>vim是Linux下好用的编辑器，但是也需要熟悉使用命令才能 <s>更好装x</s> 提高效率</p>
@@ -23,8 +23,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[SwiftUI: @State 一个用来修改页面状态的神奇语句]]></title>
-        <id>https://blog.popoup.top/post/swiftui-@state/</id>
-        <link href="https://blog.popoup.top/post/swiftui-@state/">
+        <id>https://https://blog.popoup.top/post/swiftui-@state/</id>
+        <link href="https://https://blog.popoup.top/post/swiftui-@state/">
         </link>
         <updated>2020-01-22T02:54:56.000Z</updated>
         <summary type="html"><![CDATA[<p>在我现在接触到的 SwiftUI 开发中需要更改，保存页面的值的时候，比如按一个按钮就能增加一个值，当退出的时候这个值如何才能保存起来，在下次打开的时候还能使用就要用到 @State 这个属性装饰器。</p>
@@ -34,15 +34,15 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[《See:看见》]]></title>
-        <id>https://blog.popoup.top/post/lesslessseekan-jian-greatergreater/</id>
-        <link href="https://blog.popoup.top/post/lesslessseekan-jian-greatergreater/">
+        <id>https://https://blog.popoup.top/post/lesslessseekan-jian-greatergreater/</id>
+        <link href="https://https://blog.popoup.top/post/lesslessseekan-jian-greatergreater/">
         </link>
         <updated>2020-01-05T09:19:04.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[2020新年快乐～]]></title>
-        <id>https://blog.popoup.top/post/2020/</id>
-        <link href="https://blog.popoup.top/post/2020/">
+        <id>https://https://blog.popoup.top/post/2020/</id>
+        <link href="https://https://blog.popoup.top/post/2020/">
         </link>
         <updated>2019-12-31T16:05:58.000Z</updated>
         <summary type="html"><![CDATA[<p>这是一篇旧年总结，但也是为了自己新年快乐，虽然我是想把这个blog当作一个技术博客来着，没想到没写几个就到了新年。总觉着现在过年的意义已经变成了年终和朋友们相聚的日子，只有这时候熟悉的旧友才能见面，1月1号成了每年循环的起止点，更具意义吧。</p>
@@ -52,8 +52,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[一些Docker的使用记录]]></title>
-        <id>https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/</id>
-        <link href="https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/">
+        <id>https://https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/</id>
+        <link href="https://https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/">
         </link>
         <updated>2019-12-12T08:00:08.000Z</updated>
         <summary type="html"><![CDATA[<p>打算大范围使用docker来搭建环境<br>
@@ -89,8 +89,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[go:defer & interface]]></title>
-        <id>https://blog.popoup.top/post/defer-and-interface/</id>
-        <link href="https://blog.popoup.top/post/defer-and-interface/">
+        <id>https://https://blog.popoup.top/post/defer-and-interface/</id>
+        <link href="https://https://blog.popoup.top/post/defer-and-interface/">
         </link>
         <updated>2019-07-19T12:47:39.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
@@ -102,8 +102,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Netatalk v3 安装 - deepin]]></title>
-        <id>https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/</id>
-        <link href="https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/">
+        <id>https://https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/</id>
+        <link href="https://https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/">
         </link>
         <updated>2019-07-08T01:30:55.000Z</updated>
         <summary type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本<br>
@@ -115,8 +115,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[使用 Linux - deepin 搭建 Apple 时间机器（Time Machine）服务器]]></title>
-        <id>https://blog.popoup.top/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi/</id>
-        <link href="https://blog.popoup.top/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi/">
+        <id>https://https://blog.popoup.top/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi/</id>
+        <link href="https://https://blog.popoup.top/post/shi-yong-linux-da-jian-shi-jian-xiao-nang-time-machinefu-wu-qi/">
         </link>
         <updated>2019-07-07T02:29:51.000Z</updated>
         <summary type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。<br>
@@ -130,8 +130,8 @@ Netatalk v2</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[numpy - tile函数]]></title>
-        <id>https://blog.popoup.top/post/numpy-zhong-tile-han-shu/</id>
-        <link href="https://blog.popoup.top/post/numpy-zhong-tile-han-shu/">
+        <id>https://https://blog.popoup.top/post/numpy-zhong-tile-han-shu/</id>
+        <link href="https://https://blog.popoup.top/post/numpy-zhong-tile-han-shu/">
         </link>
         <updated>2019-06-26T05:04:43.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>功能：把数组沿各个方向复制</strong></p>
@@ -141,8 +141,8 @@ Netatalk v2</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[c# chart控件的使用]]></title>
-        <id>https://blog.popoup.top/post/c-chart-kong-jian-de-shi-yong/</id>
-        <link href="https://blog.popoup.top/post/c-chart-kong-jian-de-shi-yong/">
+        <id>https://https://blog.popoup.top/post/c-chart-kong-jian-de-shi-yong/</id>
+        <link href="https://https://blog.popoup.top/post/c-chart-kong-jian-de-shi-yong/">
         </link>
         <updated>2019-06-25T02:33:30.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>在项目里制作一个实时显示激光位置的坐标图</strong></p>
