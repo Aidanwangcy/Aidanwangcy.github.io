@@ -8,7 +8,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1583806650016">
+<link rel="shortcut icon" href="/favicon.ico?v=1585017060494">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -53,7 +53,7 @@ var _hmt = _hmt || [];
     <div class="header-box">
       
 <div class=" gemini">
-  <header class="header bg-color ">
+  <header class="header  ">
     <div class="blog-header box-shadow-wrapper bg-color " id="header">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
@@ -77,6 +77,10 @@ var _hmt = _hmt || [];
       <nav class="site-nav" id="site_nav">
         <ul id="nav_ul">
           
+            
+            
+              
+            
             <li class="nav-item ">
               
               
@@ -86,6 +90,10 @@ var _hmt = _hmt || [];
               
             </li>
           
+            
+            
+              
+            
             <li class="nav-item ">
               
               
@@ -95,6 +103,10 @@ var _hmt = _hmt || [];
               
             </li>
           
+            
+            
+              
+            
             <li class="nav-item nav-item-active">
               
               
@@ -104,6 +116,10 @@ var _hmt = _hmt || [];
               
             </li>
           
+            
+            
+              
+            
             <li class="nav-item ">
               
               
@@ -113,11 +129,17 @@ var _hmt = _hmt || [];
               
             </li>
           
-          <li class="nav-item">
-            <a>
-              <i class="fa fa-search"></i> 搜索
-            </a>
-          </li>
+          
+            
+              <li class="nav-item ">
+                <a href="/friends" target="_self">
+                  
+                    fa-ship友情链接
+                  
+                </a>
+              </li>
+            
+          
         </ul>
       </nav>
     </div>
@@ -154,7 +176,7 @@ var _hmt = _hmt || [];
     
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://blog.popoup.top/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
     <p class="site-author-name">Aidan&#39;s Blog</p>
     <p class="site-description right-motion">Pain is motivation.</p>
   </div>
@@ -195,11 +217,11 @@ var _hmt = _hmt || [];
         
           
             <a href="https://github.com/Aidanwangcy">
-              <i class="fa fa-github"></i> github
+              <i class="fa fa-github" title="github"></i>
             </a>
           
             <a href="https://twitter.com/Aidanwang6">
-              <i class="fa fa-twitter"></i> twitter
+              <i class="fa fa-twitter" title="twitter"></i>
             </a>
           
         
@@ -557,7 +579,7 @@ var _hmt = _hmt || [];
 </div>
 <script>
 
-  let fontStart = 12, fontEnd = 30, colorStart = '#ccc', colorEnd = '#111';
+  let fontStart = 12, fontEnd = 30, colorStart = '#666', colorEnd = '#000';
   let tags = document.querySelector('#tags').children;
   let counts = [];
   for(let i = 0; i < tags.length; i++) {
@@ -583,12 +605,12 @@ var _hmt = _hmt || [];
         disCount = 1;
       }
       let val = (sColorArr[c] - eColorArr[c]) / range * disCount;
-      if (val >= 255) {
+      if (val >= 100) {
         val = eColorArr[c];
       } else if (val <= 0) {
         val = sColorArr[c];
       }
-      arr[c] = Math.floor(255 - val);
+      arr[c] = Math.floor(val);
     }
     style += 'color: ' + toHex(arr);
     tags[i].style = style;
