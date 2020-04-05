@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.popoup.top</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-04-05T10:57:00.801Z</updated>
+    <updated>2020-04-05T13:36:54.709Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.popoup.top"/>
     <link rel="self" href="https://blog.popoup.top/atom.xml"/>
@@ -51,37 +51,19 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[一些Docker的使用记录]]></title>
+        <title type="html"><![CDATA[📒：一些Docker的使用记录]]></title>
         <id>https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/</id>
         <link href="https://blog.popoup.top/post/yi-xie-docker-de-shi-yong-ji-lu/">
         </link>
         <updated>2019-12-12T08:00:08.000Z</updated>
         <summary type="html"><![CDATA[<p>打算大范围使用docker来搭建环境<br>
-📒：有关Docker的内容命令太多以防忘记<br>
-目录</p>
-<ul>
-<li>设置源</li>
-<li>运行停止命令</li>
-<li>保存container</li>
-<li>terminal后台控制</li>
-<li>提交Docker镜像</li>
-<li>修改container端口</li>
-</ul>
+有关Docker的内容命令太多以防忘记</p>
 <p>--2019-12-31更新--<br>
 年末更新：<br>
 发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code></p>
 ]]></summary>
         <content type="html"><![CDATA[<p>打算大范围使用docker来搭建环境<br>
-📒：有关Docker的内容命令太多以防忘记<br>
-目录</p>
-<ul>
-<li>设置源</li>
-<li>运行停止命令</li>
-<li>保存container</li>
-<li>terminal后台控制</li>
-<li>提交Docker镜像</li>
-<li>修改container端口</li>
-</ul>
+有关Docker的内容命令太多以防忘记</p>
 <p>--2019-12-31更新--<br>
 年末更新：<br>
 发现在deepin上安装的docker运行需要连接网络的应用程序会遇到<code>sock：Permission denide</code></p>
