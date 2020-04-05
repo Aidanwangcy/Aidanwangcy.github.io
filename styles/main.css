@@ -2099,8 +2099,6 @@ body {
     }
     .mist .site-title i {
       background: #FFFFFFfe;
-    }html {
-    filter: grayscale(100%);
-}.box-shadow-wrapper {
+    }.box-shadow-wrapper {
       box-shadow: none !important;
     }
