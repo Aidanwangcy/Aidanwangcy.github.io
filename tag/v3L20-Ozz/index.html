@@ -4,13 +4,13 @@
       <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="go swifUI docker">
+<meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1586435394932">
+<link rel="shortcut icon" href="/favicon.ico?v=1586657248770">
 <link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/css/mist.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -52,9 +52,9 @@ var _hmt = _hmt || [];
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" gemini">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+<div class=" mist">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper  " id="header">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
           <div class="line line-top"></div>
@@ -65,13 +65,17 @@ var _hmt = _hmt || [];
       <div class="site-meta">       
         <div class="site-title">
           
-            <a href="/" class="brand">
-              <span>Aidan&#39;s Blog</span>
+            <a href="/" class="">
+              <span class="logo-line-before">
+                <i class=""></i>
+              </span>
+              <span class="main-title">Aidan&#39;s Blog</span>
+              <span class="logo-line-after">
+                <i class=""></i>
+              </span>
             </a>  
           
         </div>
-        
-          <p class="subtitle">Pain is motivation.</p>
         
       </div>
       <nav class="site-nav" id="site_nav">
@@ -152,11 +156,11 @@ var _hmt = _hmt || [];
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  gemini">
+      <div class="section-layout bg-color mist">
         <div class="section-layout-wrapper">
           <div id="sidebarMeta" class="sidebar">
     
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+<div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
     <p class="site-author-name">Aidan&#39;s Blog</p>
@@ -184,22 +188,13 @@ var _hmt = _hmt || [];
     </div>
   </div>
   
-    
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://blog.popoup.top/atom.xml" target="_blank">RSS</a>
-        </span>
-      </div>
-    
-  
   
     <div class="sidebar-item sidebar-item-social">
       <div class="social-item">
         
           
             <a href="https://github.com/Aidanwangcy">
-              <i class="fa fa-github" title="github"></i>
+              <i class="fa fa-github-alt" title="github"></i>
             </a>
           
             <a href="https://twitter.com/Aidanwang6">
@@ -219,7 +214,7 @@ var _hmt = _hmt || [];
 </div>
 <script>
   let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
+  let scheme = 'mist';
   let sidebarWrapper = document.querySelector('.sidebar-wrapper');
   if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
     document.addEventListener('scroll', function(e) {
@@ -310,7 +305,7 @@ var _hmt = _hmt || [];
       <div class="footer-box">
   <footer class="footer">
     <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
     </div>
     <div class="poweredby">
       <a href="https://status.popoup.top/">My Service Status Page</a>
@@ -318,12 +313,14 @@ var _hmt = _hmt || [];
   </footer>
   
   
-  <div class="gemini back-to-top" id="back_to_top">
+    <div class="drawer-box left" id="drawer_box">
+      <span class="muse-line muse-line-first"></span>
+      <span class="muse-line muse-line-middle"></span>
+      <span class="muse-line muse-line-last"></span>
+    </div>
+  
+  <div class="mist back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
     
   </div>
   
@@ -460,6 +457,16 @@ var _hmt = _hmt || [];
     }
   }
 
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target","_blank");
+      }
+    })
+  }
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
