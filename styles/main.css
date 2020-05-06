@@ -201,6 +201,13 @@ pre > span.copy-code:hover {
   width: 16px;
   text-align: center;
 }
+.MathJax {
+  outline: 0;
+}
+.MathJax_Display {
+  overflow-x: auto;
+  overflow-y: hidden !important;
+}
 .head-top-line {
   height: 3px;
   background: #222;
