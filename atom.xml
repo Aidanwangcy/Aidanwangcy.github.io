@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.popoup.top</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-05-20T05:19:16.080Z</updated>
+    <updated>2020-06-18T07:39:27.399Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.popoup.top"/>
     <link rel="self" href="https://blog.popoup.top/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://blog.popoup.top/images/avatar.png</logo>
     <icon>https://blog.popoup.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Aidan&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux常用命令]]></title>
+        <id>https://blog.popoup.top/post/linux-chang-yong-ming-ling/</id>
+        <link href="https://blog.popoup.top/post/linux-chang-yong-ming-ling/">
+        </link>
+        <updated>2020-06-18T07:18:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>在Linux上开发需要经常查看的命令</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在Linux上开发需要经常查看的命令</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[信息熵]]></title>
         <id>https://blog.popoup.top/post/xin-xi-shang/</id>
@@ -113,17 +124,6 @@ Netatalk v2</p>
         <content type="html"><![CDATA[<p>由于前段时间mac屏幕突然报废，意识到了数据备份的重要性，时常插硬盘等待备份有时候很是麻烦，所以正好实验室有一台自己用的装了deepin的服务器那就在上面搭个时间胶囊的服务器，连进校园网后能让他自动备份。<br>
 Netatalk v2</p>
 <p>samba</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[numpy - tile函数]]></title>
-        <id>https://blog.popoup.top/post/numpy-zhong-tile-han-shu/</id>
-        <link href="https://blog.popoup.top/post/numpy-zhong-tile-han-shu/">
-        </link>
-        <updated>2019-06-26T05:04:43.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>功能：把数组沿各个方向复制</strong></p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>功能：把数组沿各个方向复制</strong></p>
 ]]></content>
     </entry>
 </feed>

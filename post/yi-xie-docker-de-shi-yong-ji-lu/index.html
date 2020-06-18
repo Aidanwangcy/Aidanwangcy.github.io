@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>📒：一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1589951930352">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1592465917657">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -235,7 +235,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">12</span>
+        <span class="site-item-stat-count">13</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -556,12 +556,6 @@
     </a>
   </h1>
   <div class="post-meta">
-    
-    <span class="meta-item">
-      <i class="fa fa-thumb-tack"></i>
-      <span class="language" data-lan="top">置顶</span>
-      <span class="post-meta-divider">|</span>
-    </span>
     
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
@@ -949,6 +943,51 @@ OPTIONS说明：<br>
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.popoup.top/post/linux-chang-yong-ming-ling/"" data-c="
+          &lt;p&gt;在Linux上开发需要经常查看的命令&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;查看网络信息&#34;&gt;查看网络信息&lt;/h2&gt;
+&lt;h3 id=&#34;netstat&#34;&gt;netstat&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;netstat -an | grep 8080
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看&lt;code&gt;8080&lt;/code&gt;端口信息&lt;/p&gt;
+&lt;h3 id=&#34;lsof&#34;&gt;lsof&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;lsof -i:80
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;-i&lt;/code&gt;参数表示网络链接，&lt;code&gt;:80&lt;/code&gt;指明端口号，该命令会同时列出PID，方便kill&lt;/p&gt;
+&lt;h3 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ifconfig -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看网卡信息&lt;br&gt;
+类似：&lt;code&gt;lspci | grep -i &#39;eth&#39;&lt;/code&gt;, &lt;code&gt;ip add&lt;/code&gt;, &lt;code&gt;ip link show&lt;/code&gt;, &lt;code&gt;ethtool eth0&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;查看硬件信息&#34;&gt;查看硬件信息&lt;/h2&gt;
+&lt;h3 id=&#34;lscpu&#34;&gt;lscpu&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;lscpu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看cpu信息&lt;br&gt;
+类似：&lt;code&gt;cat /proc/cpuinfo&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;free&#34;&gt;free&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;free
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看内存信息&lt;br&gt;
+&lt;code&gt;free -m&lt;/code&gt; =&amp;gt; &lt;code&gt;cat /proc/meminfo&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;free -h&lt;/code&gt; =&amp;gt; &lt;code&gt;dmidecode -t memory&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;lsblk&#34;&gt;lsblk&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;lsblk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看磁盘信息&lt;br&gt;
+类似：&lt;code&gt;fdisk -l&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;lspci&#34;&gt;lspci&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;lspci
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看硬件信息&lt;br&gt;
+&lt;code&gt;-t&lt;/code&gt;, &lt;code&gt;-v&lt;/code&gt;, &lt;code&gt;-vv&lt;/code&gt;&lt;br&gt;
+类似：&lt;code&gt;dmidecode -q&lt;/code&gt;&lt;/p&gt;
+">Linux常用命令</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.popoup.top/post/xin-xi-shang/"" data-c="
