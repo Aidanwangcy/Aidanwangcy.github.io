@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1592967375392">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1593829083522">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -660,7 +660,7 @@
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -1613,6 +1613,28 @@ if name == &#39;main&#39;:
 </script>
 
 <input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
 <script>
   let language = '';
   if (language !== '') {

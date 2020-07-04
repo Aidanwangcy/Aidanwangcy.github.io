@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>《See:看见》 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1592967375392">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1593829083522">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -343,7 +343,7 @@
 </script>
         <div class="section-box box-shadow-wrapper">
           <div class="section bg-color post post-page">
-            <header class="post-header">
+            <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://blog.popoup.top/post/lesslessseekan-jian-greatergreater/">
       《See:看见》
@@ -354,7 +354,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-01-05</span>
+      <span class="publish-time" data-t="2020-01-05 17:19:04">2020-01-05</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -382,7 +382,7 @@
     </span>
     
   </div>
-</header>
+</section>
             <div class="post-body next-md-body" id="post_body">
               <p>花了一段零散的时间看完了Apple出得新剧see，还有一部《为了全人类》还没看，这个题材不知道啥时候有时间看了，扯远了。这部剧怎么说呢，其实前几集都看的云里雾里的，可能实在交代背景吧，讲的是在未来的世界人类失去了了视力，大家生活在没有vision的世界里。建议1.2倍速观看。</p>
 <p>海王演的巴巴沃斯真的是太燃了，作为一个部落首领展现了非凡的领导能力，作为父亲也真的是如山的父爱永远都保护着他们的孩子，虽然孩子有时候不懂事，甚至孩子不是他亲生的，但是他依然给了孩子成长的空间，在孩子碰了壁也依然能给孩子们足够的保护。</p>
@@ -892,7 +892,7 @@
   </div>
 </body>
 
-  <div class="search-mask" id="search_mask" style="display: none;">
+<div class="search-mask" id="search_mask" style="display: none;">
   <div class="search-box">
     <div class="search-title">
       <i class="fa fa-search"></i>
@@ -1845,6 +1845,28 @@ if name == &#39;main&#39;:
 </script>
 
 <input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
 <script>
   let language = '';
   if (language !== '') {
