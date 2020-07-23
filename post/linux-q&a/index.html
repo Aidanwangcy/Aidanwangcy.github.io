@@ -8,7 +8,7 @@
 <meta name="keywords" content="个人博客 go docker 编程 个人纪录">
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
-<title>信息熵 | Aidan&#39;s Blog</title>
+<title>Linux问题记录 | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1595473001028">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
@@ -58,7 +58,7 @@
 </script>
 
 
-  <meta name="description" content="信息熵" />
+  <meta name="description" content="Linux问题记录" />
   <meta name="keywords" content="" />
 </head>
 
@@ -287,10 +287,26 @@
     <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E7%86%B5">熵</a></li>
-<li><a href="#%E4%BF%A1%E6%81%AF%E9%87%8F">信息量</a></li>
-<li><a href="#%E4%BF%A1%E6%81%AF%E7%86%B5">信息熵</a></li>
-<li><a href="#%E4%BF%A1%E6%81%AF%E9%87%8F%E5%92%8C%E4%BF%A1%E6%81%AF%E7%86%B5%E7%9A%84%E4%BD%BF%E7%94%A8">信息量和信息熵的使用</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF">查看网络信息</a>
+<ul>
+<li><a href="#netstat">netstat</a></li>
+<li><a href="#lsof">lsof</a></li>
+<li><a href="#ifconfig">ifconfig</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF">查看硬件信息</a>
+<ul>
+<li><a href="#lscpu">lscpu</a></li>
+<li><a href="#free">free</a></li>
+<li><a href="#lsblk">lsblk</a></li>
+<li><a href="#lspci">lspci</a></li>
+<li><a href="#kill-9-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88"><code>kill -9</code> 发生了什么</a></li>
+<li><a href="#%E7%BB%88%E7%AB%AF%E7%BB%93%E6%9D%9F%E4%BF%A1%E5%8F%B7">终端结束信号</a></li>
+<li><a href="#%E6%8C%89%E4%B8%8Bctrl-c-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">按下ctrl-c 发生了什么</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6">查看进程打开的文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98-cup-%E7%AB%AF%E5%8F%A3">查看内存、cup、端口</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -558,8 +574,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.popoup.top/post/xin-xi-shang/">
-      信息熵
+    <a class="post-title-link" href="https://blog.popoup.top/post/linux-q&amp;a/">
+      Linux问题记录
     </a>
   </h1>
   <div class="post-meta">
@@ -567,75 +583,88 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-04-18 15:29:33">2020-04-18</span>
+      <span class="publish-time" data-t="2020-06-18 15:18:30">2020-06-18</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>6<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1299<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>524<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>熵，一个标记系统混乱程度的概念。有点意思</p>
+              <p>在Linux上开发需要经常查看的命令</p>
 <!-- more -->
-<h2 id="熵">熵</h2>
-<p>熵（entropy），是化学和热力学中的一个概念，但现在可以被广泛的应用于各种领域中来描述一个系统的混乱程度。</p>
-<blockquote>
-<p>是一种测量在<a href="https://zh.wikipedia.org/wiki/%E5%8B%95%E5%8A%9B%E5%AD%B8">动力学</a>方面不能做<a href="https://zh.wikipedia.org/wiki/%E5%8A%9F">功</a>的<a href="https://zh.wikipedia.org/wiki/%E8%83%BD%E9%87%8F">能量</a>总数，也就是当总体的熵增加，其做功能力也下降，熵的量度正是能量退化的指标。熵亦被用于计算一个系统中的失序现象，也就是计算该系统混乱的程度。</p>
-</blockquote>
-<h2 id="信息量">信息量</h2>
-<p>信息量用来衡量信息的多少，而且接收到的信息量和具体发生的事件有关。信息量的大小和随机事件的发生概率有关。发生越小概率的事件的发生产生的信息量越大，比如地震；越大概率的事件发生产生的信息量越小，比如太阳从东边升起。</p>
-<p>所以一个具体的事件的信息量应该是随着其发生概率而递减，且不为负。</p>
-<p>那么，如果我们有俩个不相关的事件x和y，那么我们观察到的俩个事件同时发生时获得的信息应该等于观察到的事件各自发生时获得的信息之和，即：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>+</mo><mi>h</mi><mo>(</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x,y)=h(x)+h(y)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span></p>
-<p>由于x, y是两个不相关的事件，那么其发生概率满足：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo><mo>=</mo><mi>P</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>⋅</mo><mi>P</mi><mo>(</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">P(x,y) = P(x) \cdot P(y)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></span></p>
-<p>由上面两个公式可以得出h(x),P(x)是对数关系</p>
-<blockquote>
-<p>只有对数形式的真数相乘之后可以对应对数相加的形式，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>log</mi><mo>⁡</mo><mi>a</mi></msub><mo>(</mo><mi>m</mi><mi>n</mi><mo>)</mo><mo>=</mo><msub><mi>log</mi><mo>⁡</mo><mi>a</mi></msub><mi>m</mi><mo>+</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>a</mi></msub><mi>n</mi></mrow><annotation encoding="application/x-tex">\log_a (mn)=\log_a m + log_a n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.93858em;vertical-align:-0.24414em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.057252em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">n</span></span></span></span></p>
-</blockquote>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mo>−</mo><msub><mi>log</mi><mo>⁡</mo><mi>b</mi></msub><mi>P</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x)= -\log_b P(x)
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.24196799999999993em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span></span></p>
-<p>那么概率和信息量的关系为：</p>
-<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/Aidanwangcy/FigureBed@master/img/1-3.png" alt="信息量-概率" loading="lazy"></figure>
-<h2 id="信息熵">信息熵</h2>
-<p>1948年，香农提出“信息熵”的概念，解决了对信息量化度量的问题，因此也被称之为香农熵。</p>
-<p>信息量度量的是一个具体事件发生了所带来的信息，而熵则是在结果出来之前对可能产生的信息量的期望，考虑该随机变量的所有可能取值，即所有可能发生事件所带来的信息量的期望。</p>
-<p>即：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">H</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mo>−</mo><mo>∑</mo><mo>(</mo><mi>P</mi><mo>(</mo><mi>x</mi><mo>)</mo><msub><mi>log</mi><mo>⁡</mo><mi>b</mi></msub><mi>P</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">\Eta(X)= - \sum(P(x)\log_b P(x))
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">∑</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.24196799999999993em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></span></p>
-<p>一条信息的信息量大小和它不确定性有直接关系。比如说，我们要搞清楚一件非常非常不确定的事，或是我们一无所知的事情，就需要了解大量的信息。相反，如果我们对某件事已经有了较多的了解，我们不需要太多的信息就能把它搞清楚。</p>
-<p>随机变量<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 的熵值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">H</mi></mrow><annotation encoding="application/x-tex">\Eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathrm">H</span></span></span></span></span> 定义如下，值域为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex">\{x_1,…, x_n\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>.</p>
-<p>则</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">H</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mi>E</mi><mo>[</mo><mi>I</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>]</mo><mo>=</mo><mi>E</mi><mo>[</mo><mo>−</mo><mi>ln</mi><mo>⁡</mo><mo>(</mo><mi>P</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">\Eta(X)= E[I(X)] = E[-\ln(P(X))]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">[</span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">ln</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></span></p>
-<p>P为<em>X</em>的概率质量函数（probability mass function），E为期望，而I(<em>X</em>)是<em>X</em>的信息量。I(<em>X</em>)本身是个随机变数。</p>
-<p>当取自有限样本时，熵的公示即可表示为：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">H</mi><mo>(</mo><mi>X</mi><mo>)</mo><mo>=</mo><mo>−</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>P</mi><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>)</mo><msub><mi>log</mi><mo>⁡</mo><mi>b</mi></msub><mo>[</mo><mi>P</mi><mo>(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>)</mo><mo>]</mo></mrow><annotation encoding="application/x-tex">\Eta(X)=-\sum_{i=1}^n P(x_i)\log_b [P(x_i)]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.24196799999999993em;"><span style="top:-2.4558600000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24414em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mclose">]</span></span></span></span></span></p>
-<p>这里b通常是2、自然常数e、或是10。当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">b=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> ，熵的单位是bit；当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>=</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">b=e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">e</span></span></span></span>，处理正态分布的数据；当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>b</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">b=10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>,万金油。</p>
-<h2 id="信息量和信息熵的使用">信息量和信息熵的使用</h2>
-<p>有上面的公式可以看出，信息越不确定，信息熵就会越高。当信息确定，如太阳明天早晨从东边升起概率是1，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">h(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span> 为0，可得<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">H</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Eta(s)=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">H</span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ，反之信息熵就会越来越高。</p>
-<p>当一个人需要了解一个信息的时候，需要从众多的信息中得到这个信息的最终确定值，也就是一个逐步进行熵减的过程，最终到确定了解这个个信息也就是熵减少到0。</p>
-<p>熵增定律说明：事物总是向着无序混乱状态发展。</p>
-<p>那我想要获得一个熵足够低的信息，我就要进行熵减的行为，也就是需要向系统中输入能量，使系统的混乱程度降度。</p>
-<p>在我们一生的学习中，我们都在不断的用大脑来试错，减少错误信息的干扰，直到能拿到一个熵为0的信息，结果就是我们学会知识。</p>
-<blockquote>
-<p>[1]. 熵 (信息论)[J]. 维基百科，自由的百科全书, 2020. https://zh.wikipedia.org/wiki/%E7%86%B5_(%E4%BF%A1%E6%81%AF%E8%AE%BA).</p>
-<p>[2]. 信息量_百度百科[EB/OL]. [2020-04-18]. https://baike.baidu.com/item/%E4%BF%A1%E6%81%AF%E9%87%8F/420401.</p>
-<p>[3]. 信息熵[EB/OL]. 机器之心, [2020-04-18]. https://www.jiqizhixin.com/graph/technologies/7afc5fc3-a61c-4238-b496-9c39392a91fe.</p>
-<p>[4]. 香农熵_百度百科[EB/OL]. [2020-04-18]. https://baike.baidu.com/item/%E9%A6%99%E5%86%9C%E7%86%B5.</p>
-</blockquote>
+<h2 id="查看网络信息">查看网络信息</h2>
+<h3 id="netstat">netstat</h3>
+<pre><code>netstat -an | grep 8080
+</code></pre>
+<p>查看<code>8080</code>端口信息</p>
+<h3 id="lsof">lsof</h3>
+<pre><code>lsof -i:80
+</code></pre>
+<p><code>-i</code>参数表示网络链接，<code>:80</code>指明端口号，该命令会同时列出PID，方便kill</p>
+<h3 id="ifconfig">ifconfig</h3>
+<pre><code>ifconfig -a
+</code></pre>
+<p>查看网卡信息<br>
+类似：<code>lspci | grep -i 'eth'</code>, <code>ip add</code>, <code>ip link show</code>, <code>ethtool eth0</code></p>
+<hr>
+<h2 id="查看硬件信息">查看硬件信息</h2>
+<h3 id="lscpu">lscpu</h3>
+<pre><code>lscpu
+</code></pre>
+<p>查看cpu信息<br>
+类似：<code>cat /proc/cpuinfo</code></p>
+<h3 id="free">free</h3>
+<pre><code>free
+</code></pre>
+<p>查看内存信息<br>
+<code>free -m</code> =&gt; <code>cat /proc/meminfo</code><br>
+<code>free -h</code> =&gt; <code>dmidecode -t memory</code></p>
+<h3 id="lsblk">lsblk</h3>
+<pre><code>lsblk
+</code></pre>
+<p>查看磁盘信息<br>
+类似：<code>fdisk -l</code></p>
+<h3 id="lspci">lspci</h3>
+<pre><code>lspci
+</code></pre>
+<p>查看硬件信息<br>
+<code>-t</code>, <code>-v</code>, <code>-vv</code><br>
+类似：<code>dmidecode -q</code></p>
+<hr>
+<h3 id="kill-9-发生了什么"><code>kill -9</code> 发生了什么</h3>
+<p>kill 默认信号是 -15，<code>kill -15</code>代表的信号为<code>SIGTERM</code>，这是告诉进程你需要被关闭，请自行停止运行并退出；<br>
+<code>kill -9</code> 代表的信号是<code>SIGKILL</code>，表示进程被终止，需要立即退出；</p>
+<h3 id="终端结束信号">终端结束信号</h3>
+<p>开启终端后，shell会给 <code>SIGHUP</code> 信号注册一个回调函数，用于给该 shell 下所有的子进程发送 <code>SIGHUP</code> 信号，然后再主动退出。</p>
+<h3 id="按下ctrl-c-发生了什么">按下ctrl-c 发生了什么</h3>
+<p>终端产生 <code>SIGINT</code> 信号<br>
+前台进程组中的所有进程都会接收到 SIGINT 信号然后退出(默认动作)<br>
+shell通过调用 waitpid 清理进程表中子进程信息</p>
+<h3 id="查看进程打开的文件">查看进程打开的文件</h3>
+<p>lsof：打开进程打开的所有文件<br>
+lsof /目录 /文件：查看谁正在使用该文件<br>
+lsof +D /目录/：查看某个目录的所有文件信息的方法<br>
+lsof -u username：列出某个用户打开的文件信息<br>
+losf -c mysql：列出某个程序打开的文件信息<br>
+lsof -u^root: 列出除了某个用户外的被打开的文件信息<br>
+losf -p 123,456,789：通过进程号查看打开的文件<br>
+lsof -p ^1：排除某个进程号所打开的文件<br>
+lsof -i [udp] [tcp] ：查看网络连接信息<br>
+lsof -i:3306 : 列出谁在使用某个端口</p>
+<h3 id="查看内存-cup-端口">查看内存、cup、端口</h3>
+<p>查看内存：cat /proc/meminfo | grep MemTotal<br>
+查看cpu：cat /proc/cpuinfo<br>
+netstat -lntp # 查看所有监听端口</p>
 
             </div>
             
@@ -648,7 +677,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.popoup.top/post/xin-xi-shang/" title="信息熵">https://blog.popoup.top/post/xin-xi-shang/</a>
+      <a href="https://blog.popoup.top/post/linux-q&amp;a/" title="Linux问题记录">https://blog.popoup.top/post/linux-q&amp;a/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -661,15 +690,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Linux问题记录" href="https://blog.popoup.top/post/linux-q&amp;a/">Linux问题记录</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Linux问题记录" href="https://blog.popoup.top/post/linux-q&amp;a/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Vim命令记录" href="https://blog.popoup.top/post/vim-ming-ling-ji-lu/">Vim命令记录</a>
-        <a class="nav-mobile-next" title="Vim命令记录" href="https://blog.popoup.top/post/vim-ming-ling-ji-lu/">下一篇</a>
+        <a class="nav-pc-next" title="信息熵" href="https://blog.popoup.top/post/xin-xi-shang/">信息熵</a>
+        <a class="nav-mobile-next" title="信息熵" href="https://blog.popoup.top/post/xin-xi-shang/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
