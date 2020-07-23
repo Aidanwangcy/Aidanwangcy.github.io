@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>📒：一些Docker的使用记录 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1595471725994">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1595472865877">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -115,8 +115,8 @@
             <li class="nav-item ">
               
               
-                <a href="/archives/" target="_self">
-                  <i class="fa fa-archive"></i> 归档
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
                 </a>
               
             </li>
@@ -128,8 +128,8 @@
             <li class="nav-item ">
               
               
-                <a href="/tags/" target="_self">
-                  <i class="fa fa-tags"></i> 标签
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
                 </a>
               
             </li>
@@ -1219,7 +1219,32 @@ OPTIONS说明：<br>
 &lt;p&gt;查看硬件信息&lt;br&gt;
 &lt;code&gt;-t&lt;/code&gt;, &lt;code&gt;-v&lt;/code&gt;, &lt;code&gt;-vv&lt;/code&gt;&lt;br&gt;
 类似：&lt;code&gt;dmidecode -q&lt;/code&gt;&lt;/p&gt;
-">Linux常用命令</a>
+&lt;hr&gt;
+&lt;h3 id=&#34;kill-9-发生了什么&#34;&gt;&lt;code&gt;kill -9&lt;/code&gt; 发生了什么&lt;/h3&gt;
+&lt;p&gt;kill 默认信号是 -15，&lt;code&gt;kill -15&lt;/code&gt;代表的信号为&lt;code&gt;SIGTERM&lt;/code&gt;，这是告诉进程你需要被关闭，请自行停止运行并退出；&lt;br&gt;
+&lt;code&gt;kill -9&lt;/code&gt; 代表的信号是&lt;code&gt;SIGKILL&lt;/code&gt;，表示进程被终止，需要立即退出；&lt;/p&gt;
+&lt;h3 id=&#34;终端结束信号&#34;&gt;终端结束信号&lt;/h3&gt;
+&lt;p&gt;开启终端后，shell会给 &lt;code&gt;SIGHUP&lt;/code&gt; 信号注册一个回调函数，用于给该 shell 下所有的子进程发送 &lt;code&gt;SIGHUP&lt;/code&gt; 信号，然后再主动退出。&lt;/p&gt;
+&lt;h3 id=&#34;按下ctrl-c-发生了什么&#34;&gt;按下ctrl-c 发生了什么&lt;/h3&gt;
+&lt;p&gt;终端产生 &lt;code&gt;SIGINT&lt;/code&gt; 信号&lt;br&gt;
+前台进程组中的所有进程都会接收到 SIGINT 信号然后退出(默认动作)&lt;br&gt;
+shell通过调用 waitpid 清理进程表中子进程信息&lt;/p&gt;
+&lt;h3 id=&#34;查看进程打开的文件&#34;&gt;查看进程打开的文件&lt;/h3&gt;
+&lt;p&gt;lsof：打开进程打开的所有文件&lt;br&gt;
+lsof /目录 /文件：查看谁正在使用该文件&lt;br&gt;
+lsof +D /目录/：查看某个目录的所有文件信息的方法&lt;br&gt;
+lsof -u username：列出某个用户打开的文件信息&lt;br&gt;
+losf -c mysql：列出某个程序打开的文件信息&lt;br&gt;
+lsof -u^root: 列出除了某个用户外的被打开的文件信息&lt;br&gt;
+losf -p 123,456,789：通过进程号查看打开的文件&lt;br&gt;
+lsof -p ^1：排除某个进程号所打开的文件&lt;br&gt;
+lsof -i [udp] [tcp] ：查看网络连接信息&lt;br&gt;
+lsof -i:3306 : 列出谁在使用某个端口&lt;/p&gt;
+&lt;h3 id=&#34;查看内存-cup-端口&#34;&gt;查看内存、cup、端口&lt;/h3&gt;
+&lt;p&gt;查看内存：cat /proc/meminfo | grep MemTotal&lt;br&gt;
+查看cpu：cat /proc/cpuinfo&lt;br&gt;
+netstat -lntp # 查看所有监听端口&lt;/p&gt;
+">Linux问题记录</a>
       </div>
       
       <div class="item">

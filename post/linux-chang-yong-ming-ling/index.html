@@ -8,8 +8,8 @@
 <meta name="keywords" content="个人博客 go docker 编程 个人纪录">
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
-<title>Linux常用命令 | Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1595471725994">
+<title>Linux问题记录 | Aidan&#39;s Blog</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/favicon.ico?v=1595472865877">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Aidanwangcy/Aidanwangcy.github.io@master/media/fonts/font-awesome.css">
 <link
@@ -58,7 +58,7 @@
 </script>
 
 
-  <meta name="description" content="Linux常用命令" />
+  <meta name="description" content="Linux问题记录" />
   <meta name="keywords" content="" />
 </head>
 
@@ -115,8 +115,8 @@
             <li class="nav-item ">
               
               
-                <a href="/archives/" target="_self">
-                  <i class="fa fa-archive"></i> 归档
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
                 </a>
               
             </li>
@@ -128,8 +128,8 @@
             <li class="nav-item ">
               
               
-                <a href="/tags/" target="_self">
-                  <i class="fa fa-tags"></i> 标签
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
                 </a>
               
             </li>
@@ -300,6 +300,11 @@
 <li><a href="#free">free</a></li>
 <li><a href="#lsblk">lsblk</a></li>
 <li><a href="#lspci">lspci</a></li>
+<li><a href="#kill-9-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88"><code>kill -9</code> 发生了什么</a></li>
+<li><a href="#%E7%BB%88%E7%AB%AF%E7%BB%93%E6%9D%9F%E4%BF%A1%E5%8F%B7">终端结束信号</a></li>
+<li><a href="#%E6%8C%89%E4%B8%8Bctrl-c-%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88">按下ctrl-c 发生了什么</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6">查看进程打开的文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98-cup-%E7%AB%AF%E5%8F%A3">查看内存、cup、端口</a></li>
 </ul>
 </li>
 </ul>
@@ -570,7 +575,7 @@
             <section class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://blog.popoup.top/post/linux-chang-yong-ming-ling/">
-      Linux常用命令
+      Linux问题记录
     </a>
   </h1>
   <div class="post-meta">
@@ -584,12 +589,12 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>150<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>524<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
@@ -635,6 +640,31 @@
 <p>查看硬件信息<br>
 <code>-t</code>, <code>-v</code>, <code>-vv</code><br>
 类似：<code>dmidecode -q</code></p>
+<hr>
+<h3 id="kill-9-发生了什么"><code>kill -9</code> 发生了什么</h3>
+<p>kill 默认信号是 -15，<code>kill -15</code>代表的信号为<code>SIGTERM</code>，这是告诉进程你需要被关闭，请自行停止运行并退出；<br>
+<code>kill -9</code> 代表的信号是<code>SIGKILL</code>，表示进程被终止，需要立即退出；</p>
+<h3 id="终端结束信号">终端结束信号</h3>
+<p>开启终端后，shell会给 <code>SIGHUP</code> 信号注册一个回调函数，用于给该 shell 下所有的子进程发送 <code>SIGHUP</code> 信号，然后再主动退出。</p>
+<h3 id="按下ctrl-c-发生了什么">按下ctrl-c 发生了什么</h3>
+<p>终端产生 <code>SIGINT</code> 信号<br>
+前台进程组中的所有进程都会接收到 SIGINT 信号然后退出(默认动作)<br>
+shell通过调用 waitpid 清理进程表中子进程信息</p>
+<h3 id="查看进程打开的文件">查看进程打开的文件</h3>
+<p>lsof：打开进程打开的所有文件<br>
+lsof /目录 /文件：查看谁正在使用该文件<br>
+lsof +D /目录/：查看某个目录的所有文件信息的方法<br>
+lsof -u username：列出某个用户打开的文件信息<br>
+losf -c mysql：列出某个程序打开的文件信息<br>
+lsof -u^root: 列出除了某个用户外的被打开的文件信息<br>
+losf -p 123,456,789：通过进程号查看打开的文件<br>
+lsof -p ^1：排除某个进程号所打开的文件<br>
+lsof -i [udp] [tcp] ：查看网络连接信息<br>
+lsof -i:3306 : 列出谁在使用某个端口</p>
+<h3 id="查看内存-cup-端口">查看内存、cup、端口</h3>
+<p>查看内存：cat /proc/meminfo | grep MemTotal<br>
+查看cpu：cat /proc/cpuinfo<br>
+netstat -lntp # 查看所有监听端口</p>
 
             </div>
             
@@ -647,7 +677,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.popoup.top/post/linux-chang-yong-ming-ling/" title="Linux常用命令">https://blog.popoup.top/post/linux-chang-yong-ming-ling/</a>
+      <a href="https://blog.popoup.top/post/linux-chang-yong-ming-ling/" title="Linux问题记录">https://blog.popoup.top/post/linux-chang-yong-ming-ling/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -1192,7 +1222,32 @@
 &lt;p&gt;查看硬件信息&lt;br&gt;
 &lt;code&gt;-t&lt;/code&gt;, &lt;code&gt;-v&lt;/code&gt;, &lt;code&gt;-vv&lt;/code&gt;&lt;br&gt;
 类似：&lt;code&gt;dmidecode -q&lt;/code&gt;&lt;/p&gt;
-">Linux常用命令</a>
+&lt;hr&gt;
+&lt;h3 id=&#34;kill-9-发生了什么&#34;&gt;&lt;code&gt;kill -9&lt;/code&gt; 发生了什么&lt;/h3&gt;
+&lt;p&gt;kill 默认信号是 -15，&lt;code&gt;kill -15&lt;/code&gt;代表的信号为&lt;code&gt;SIGTERM&lt;/code&gt;，这是告诉进程你需要被关闭，请自行停止运行并退出；&lt;br&gt;
+&lt;code&gt;kill -9&lt;/code&gt; 代表的信号是&lt;code&gt;SIGKILL&lt;/code&gt;，表示进程被终止，需要立即退出；&lt;/p&gt;
+&lt;h3 id=&#34;终端结束信号&#34;&gt;终端结束信号&lt;/h3&gt;
+&lt;p&gt;开启终端后，shell会给 &lt;code&gt;SIGHUP&lt;/code&gt; 信号注册一个回调函数，用于给该 shell 下所有的子进程发送 &lt;code&gt;SIGHUP&lt;/code&gt; 信号，然后再主动退出。&lt;/p&gt;
+&lt;h3 id=&#34;按下ctrl-c-发生了什么&#34;&gt;按下ctrl-c 发生了什么&lt;/h3&gt;
+&lt;p&gt;终端产生 &lt;code&gt;SIGINT&lt;/code&gt; 信号&lt;br&gt;
+前台进程组中的所有进程都会接收到 SIGINT 信号然后退出(默认动作)&lt;br&gt;
+shell通过调用 waitpid 清理进程表中子进程信息&lt;/p&gt;
+&lt;h3 id=&#34;查看进程打开的文件&#34;&gt;查看进程打开的文件&lt;/h3&gt;
+&lt;p&gt;lsof：打开进程打开的所有文件&lt;br&gt;
+lsof /目录 /文件：查看谁正在使用该文件&lt;br&gt;
+lsof +D /目录/：查看某个目录的所有文件信息的方法&lt;br&gt;
+lsof -u username：列出某个用户打开的文件信息&lt;br&gt;
+losf -c mysql：列出某个程序打开的文件信息&lt;br&gt;
+lsof -u^root: 列出除了某个用户外的被打开的文件信息&lt;br&gt;
+losf -p 123,456,789：通过进程号查看打开的文件&lt;br&gt;
+lsof -p ^1：排除某个进程号所打开的文件&lt;br&gt;
+lsof -i [udp] [tcp] ：查看网络连接信息&lt;br&gt;
+lsof -i:3306 : 列出谁在使用某个端口&lt;/p&gt;
+&lt;h3 id=&#34;查看内存-cup-端口&#34;&gt;查看内存、cup、端口&lt;/h3&gt;
+&lt;p&gt;查看内存：cat /proc/meminfo | grep MemTotal&lt;br&gt;
+查看cpu：cat /proc/cpuinfo&lt;br&gt;
+netstat -lntp # 查看所有监听端口&lt;/p&gt;
+">Linux问题记录</a>
       </div>
       
       <div class="item">
