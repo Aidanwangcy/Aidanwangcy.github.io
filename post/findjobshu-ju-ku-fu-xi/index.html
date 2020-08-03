@@ -8,7 +8,7 @@
 <meta name="keywords" content="个人博客 go docker 编程 个人纪录">
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
-<title>Hello Gridea | Aidan&#39;s Blog</title>
+<title>findJob：数据库复习 | Aidan&#39;s Blog</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/favicon.ico?v=1596467987796">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/fonts/font-awesome.css">
@@ -61,8 +61,8 @@
 </script>
 
 
-  <meta name="description" content="Hello Gridea" />
-  <meta name="keywords" content="Gridea" />
+  <meta name="description" content="findJob：数据库复习" />
+  <meta name="keywords" content="findJob" />
 </head>
 
 <body>
@@ -288,9 +288,23 @@
   <div class="toc-wrapper auto-number auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
+<li><a href="#mysql">MySQL</a>
 <ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+<li><a href="#mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">MySQL数据类型</a></li>
+<li><a href="#%E5%9B%9B%E7%A7%8D%E4%BA%8B%E7%89%A9%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB-httpsdeveloperaliyuncomarticle743691">四种事物隔离级别 https://developer.aliyun.com/article/743691</a></li>
+<li><a href="#mysql%E7%B4%A2%E5%BC%95">MySql索引</a></li>
+<li><a href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95-%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95">覆盖索引、联合索引</a></li>
+<li><a href="#%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E5%92%8C%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95">聚簇索引和非聚簇索引</a></li>
+<li><a href="#%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D">最左匹配</a></li>
+<li><a href="#innodb%E5%92%8Cmyisam%E7%9A%84%E5%8C%BA%E5%88%AB">InnoDB和MyISAM的区别</a></li>
+<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6">主从复制</a></li>
+<li><a href="#%E4%BA%94%E7%A7%8Dio%E6%A8%A1%E5%9E%8B">五种io模型</a></li>
+</ul>
+</li>
+<li><a href="#redis">Redis</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">基本数据结构</a></li>
+<li><a href="#%E5%92%8Cmysql%E7%9A%84%E5%8C%BA%E5%88%AB">和MySQL的区别</a></li>
 </ul>
 </li>
 </ul>
@@ -558,8 +572,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.popoup.top/post/hello-gridea/">
-      Hello Gridea
+    <a class="post-title-link" href="https://blog.popoup.top/post/findjobshu-ju-ku-fu-xi/">
+      findJob：数据库复习
     </a>
   </h1>
   <div class="post-meta">
@@ -567,7 +581,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2018-12-12 00:00:00">2018-12-12</span>
+      <span class="publish-time" data-t="2020-08-03 23:09:36">2020-08-03</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -576,8 +590,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://blog.popoup.top/tag/gridea/">
-        <span>Gridea</span>
+      <a href="https://blog.popoup.top/tag/EoU9aReFv/">
+        <span>findJob</span>
       </a>
       
       
@@ -586,38 +600,99 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>295<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1347<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+              <p>面试复习系列<br>
+MySQL<br>
+Redis</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="http://hvenotes.fehey.com/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<h1 id="mysql">MySQL</h1>
+<h2 id="mysql数据类型">MySQL数据类型</h2>
+<pre><code>- 数值型
+  - INTEGER、SMALLINT、DECIMAL和NUMERIC
+  - TINYINT、MEDIUMINT和BIGINT
+- 浮点型
+  - FLOAT、DOUBLE
+- 日期/时间
+  - DATETIME、DATE、TIMESTAMP、TIME和YEAR
+  - 当字段定义为timestamp，表示该字段在插入和更新时都不会自动设置为当前时间
+- 字符串（字符）
+  - CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM和SET
+  - CHAR：定长字符串
+  - VARCHAR：变长字符串
+</code></pre>
+<h2 id="四种事物隔离级别-httpsdeveloperaliyuncomarticle743691">四种事物隔离级别 https://developer.aliyun.com/article/743691</h2>
+<pre><code>- 事物并发可能出现的情况
+  - 脏读：一个事物读到了另一个未提交事物修改过的数据，只在读未提交隔离级别才会出现
+  - 不可重复读：一个事务只能读到另一个已经提交的事务修改过的数据，并且其他事务每对该数据进行一次修改并提交后，该事务都能查询得到最新值。（不可重复读在读未提交和读已提交隔离级别都可能会出现）
+  - 幻读：一个事务先根据某些条件查询出一些记录，之后另一个事务又向表中插入了符合这些条件的记录，原先的事务再次按照该条件查询时，能把另一个事务插入的记录也读出来。（幻读在读未提交、读已提交、可重复读隔离级别都可能会出现）
+- 隔离级别比较：可串行化&gt;可重复读&gt;读已提交&gt;读未提交
+- 隔离级别对性能的影响比较：可串行化&gt;可重复读&gt;读已提交&gt;读未提交
+- 读未提交
+  - 事务A可以读取到事务B修改过但未提交的数据。
+  - 可能发生脏读、不可重复读和幻读问题，一般很少使用此隔离级别。
+- 读已提交
+  - 事务B只能在事务A修改过并且已提交后才能读取到事务B修改的数据
+  - 解决了脏读的问题，但可能发生不可重复读和幻读问题，一般很少使用此隔离级别。
+- 可重复读（默认）
+  - 事务B只能在事务A修改过数据并提交后，自己也提交事务后，才能读取到事务B修改的数据。
+  - 解决了脏读和不可重复读的问题，但可能发生幻读
+- 可串行化
+  - 各种问题（脏读、不可重复读、幻读）都不会发生，通过加锁实现（读锁和写锁）。
+  - 实现原理：每条记录在更新的时候都会同时记录一条回滚操作（回滚操作日志undo log）。同一条记录在系统中可以存在多个版本，这就是数据库的多版本并发控制（MVCC）。即通过回滚（rollback操作），可以回到前一个状态的值。
+</code></pre>
+<h2 id="mysql索引">MySql索引</h2>
+<pre><code>- b和b+树的区别
+  - b+树的中间节点不保存数据，所以磁盘页能容纳更多节点元素，更“矮胖”
+  - b+树查询必须查找到叶子节点，b树只要匹配到即可不用管元素位置，因此b+树查找更稳定（并不慢）；
+  - 对于范围查找来说，b+树只需遍历叶子节点链表即可，b树却需要重复地中序遍历
+- 为什么使用b+
+  - hash：虽然可以快速定位，但是没有顺序，IO复杂度高。
+  - 二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。
+  - 红黑树：树的高度随着数据量增加而增加，IO代价高。
+</code></pre>
+<h2 id="覆盖索引-联合索引">覆盖索引、联合索引</h2>
+<pre><code>- 覆盖索引：指一个查询语句的执行只用从索引中就能够取得，不必从数据表中读取。
+- 联合索引：下面最左匹配
+</code></pre>
+<h2 id="聚簇索引和非聚簇索引">聚簇索引和非聚簇索引</h2>
+<pre><code>- 在 InnoDB 里，索引B+ Tree的叶子节点存储了整行数据的是主键索引，也被称之为聚簇索引。
+- 索引B+ Tree的叶子节点存储了主键的值的是非主键索引，也被称之为非聚簇索引。
+- 聚簇索引查询更快，不需要回表
+</code></pre>
+<h2 id="最左匹配">最左匹配</h2>
+<pre><code>- 在创建多列索引时，我们根据业务需求，where子句中使用最频繁的一列放在最左边，因为MySQL索引查询会遵循最左前缀匹配的原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。所以当我们创建一个联合索引的时候，如(key1,key2,key3)，相当于创建了(key1)、(key1,key2)和(key1,key2,key3)三个索引，这就是最左匹配原则。
+</code></pre>
+<h2 id="innodb和myisam的区别">InnoDB和MyISAM的区别</h2>
+<pre><code>- Innodb 支持事务处理与外键和行级锁，myISAM不支持
+</code></pre>
+<h2 id="主从复制">主从复制</h2>
+<pre><code>- 过程![过程](https://cdn.jsdelivr.net/gh/aidancy/FigureBed@master/img/at9g2W.png)
+</code></pre>
+<h2 id="五种io模型">五种io模型</h2>
+<pre><code>- https://blog.csdn.net/ZWE7616175/article/details/80591587
+- 同步io
+  - 阻塞IO、非阻塞IO、信号驱动IO、IO多路转接
+- 异步IO
+- 阻塞程度：阻塞IO&gt;非阻塞IO&gt;多路转接IO&gt;信号驱动IO&gt;异步IO
+</code></pre>
+<h1 id="redis">Redis</h1>
+<h2 id="基本数据结构">基本数据结构</h2>
+<pre><code>- string、list、hash、set和zset
+</code></pre>
+<h2 id="和mysql的区别">和MySQL的区别</h2>
+<pre><code>- Redis：基于内存，读写速度快，也可做持久化，但是内存空间有限，当数据量超过内存空间时，需扩充内存
+- MySQL：基于磁盘，读写速度没有Redis快，但是不受空间容量限制
+</code></pre>
 
             </div>
             
@@ -630,7 +705,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.popoup.top/post/hello-gridea/" title="Hello Gridea">https://blog.popoup.top/post/hello-gridea/</a>
+      <a href="https://blog.popoup.top/post/findjobshu-ju-ku-fu-xi/" title="findJob：数据库复习">https://blog.popoup.top/post/findjobshu-ju-ku-fu-xi/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -639,7 +714,7 @@
   </ul>
   <div class="tags">
     
-      <a href="https://blog.popoup.top/tag/gridea/"># Gridea</a>
+      <a href="https://blog.popoup.top/tag/EoU9aReFv/"># findJob</a>
     
   </div>
   <div class="nav">
@@ -647,6 +722,10 @@
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Linux问题记录" href="https://blog.popoup.top/post/linux-q&amp;a/">Linux问题记录</a>
+        <a class="nav-mobile-next" title="Linux问题记录" href="https://blog.popoup.top/post/linux-q&amp;a/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

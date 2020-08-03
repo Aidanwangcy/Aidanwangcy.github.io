@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/favicon.ico?v=1596293155856">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/favicon.ico?v=1596467987796">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/fonts/font-awesome.css">
 <link
@@ -220,19 +220,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-count">14</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -282,12 +282,70 @@
         <div class="section-box box-shadow-wrapper">
           <section class="section tags-section bg-color posts-expand">
             <div class="tags-box">
-  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="7">
-    目前共计 7 个标签
+  <div class="tag-cloud-title language" data-lan="cloud-tags" data-count="8">
+    目前共计 8 个标签
   </div>
   <div class="tag-cloud-list" id="tags">
     
       
+      
+        
+          
+            
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+      <a class="cloud-tag" href="https://blog.popoup.top/tag/EoU9aReFv/" rel="1">findJob</a>
+    
+      
+      
+        
+          
+        
       
         
       
@@ -340,6 +398,10 @@
       
       
         
+          
+        
+      
+        
       
         
       
@@ -388,6 +450,10 @@
       <a class="cloud-tag" href="https://blog.popoup.top/tag/v3L20-Ozz/" rel="1">Life</a>
     
       
+      
+        
+          
+        
       
         
       
@@ -440,6 +506,10 @@
       
       
         
+          
+        
+      
+        
       
         
       
@@ -486,6 +556,10 @@
       <a class="cloud-tag" href="https://blog.popoup.top/tag/DQJCm0VKK/" rel="1">Python</a>
     
       
+      
+        
+          
+        
       
         
       
@@ -538,6 +612,10 @@
       
       
         
+          
+        
+      
+        
       
         
       
@@ -586,6 +664,10 @@
       <a class="cloud-tag" href="https://blog.popoup.top/tag/E1GpyQ-9f/" rel="1">c#</a>
     
       
+      
+        
+          
+        
       
         
       
@@ -902,6 +984,93 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://blog.popoup.top/post/findjobshu-ju-ku-fu-xi/"" data-c="
+          &lt;p&gt;面试复习系列&lt;br&gt;
+MySQL&lt;br&gt;
+Redis&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;mysql&#34;&gt;MySQL&lt;/h1&gt;
+&lt;h2 id=&#34;mysql数据类型&#34;&gt;MySQL数据类型&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 数值型
+  - INTEGER、SMALLINT、DECIMAL和NUMERIC
+  - TINYINT、MEDIUMINT和BIGINT
+- 浮点型
+  - FLOAT、DOUBLE
+- 日期/时间
+  - DATETIME、DATE、TIMESTAMP、TIME和YEAR
+  - 当字段定义为timestamp，表示该字段在插入和更新时都不会自动设置为当前时间
+- 字符串（字符）
+  - CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM和SET
+  - CHAR：定长字符串
+  - VARCHAR：变长字符串
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;四种事物隔离级别-httpsdeveloperaliyuncomarticle743691&#34;&gt;四种事物隔离级别 https://developer.aliyun.com/article/743691&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 事物并发可能出现的情况
+  - 脏读：一个事物读到了另一个未提交事物修改过的数据，只在读未提交隔离级别才会出现
+  - 不可重复读：一个事务只能读到另一个已经提交的事务修改过的数据，并且其他事务每对该数据进行一次修改并提交后，该事务都能查询得到最新值。（不可重复读在读未提交和读已提交隔离级别都可能会出现）
+  - 幻读：一个事务先根据某些条件查询出一些记录，之后另一个事务又向表中插入了符合这些条件的记录，原先的事务再次按照该条件查询时，能把另一个事务插入的记录也读出来。（幻读在读未提交、读已提交、可重复读隔离级别都可能会出现）
+- 隔离级别比较：可串行化&amp;gt;可重复读&amp;gt;读已提交&amp;gt;读未提交
+- 隔离级别对性能的影响比较：可串行化&amp;gt;可重复读&amp;gt;读已提交&amp;gt;读未提交
+- 读未提交
+  - 事务A可以读取到事务B修改过但未提交的数据。
+  - 可能发生脏读、不可重复读和幻读问题，一般很少使用此隔离级别。
+- 读已提交
+  - 事务B只能在事务A修改过并且已提交后才能读取到事务B修改的数据
+  - 解决了脏读的问题，但可能发生不可重复读和幻读问题，一般很少使用此隔离级别。
+- 可重复读（默认）
+  - 事务B只能在事务A修改过数据并提交后，自己也提交事务后，才能读取到事务B修改的数据。
+  - 解决了脏读和不可重复读的问题，但可能发生幻读
+- 可串行化
+  - 各种问题（脏读、不可重复读、幻读）都不会发生，通过加锁实现（读锁和写锁）。
+  - 实现原理：每条记录在更新的时候都会同时记录一条回滚操作（回滚操作日志undo log）。同一条记录在系统中可以存在多个版本，这就是数据库的多版本并发控制（MVCC）。即通过回滚（rollback操作），可以回到前一个状态的值。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;mysql索引&#34;&gt;MySql索引&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- b和b+树的区别
+  - b+树的中间节点不保存数据，所以磁盘页能容纳更多节点元素，更“矮胖”
+  - b+树查询必须查找到叶子节点，b树只要匹配到即可不用管元素位置，因此b+树查找更稳定（并不慢）；
+  - 对于范围查找来说，b+树只需遍历叶子节点链表即可，b树却需要重复地中序遍历
+- 为什么使用b+
+  - hash：虽然可以快速定位，但是没有顺序，IO复杂度高。
+  - 二叉树：树的高度不均匀，不能自平衡，查找效率跟数据有关（树的高度），并且IO代价高。
+  - 红黑树：树的高度随着数据量增加而增加，IO代价高。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;覆盖索引-联合索引&#34;&gt;覆盖索引、联合索引&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 覆盖索引：指一个查询语句的执行只用从索引中就能够取得，不必从数据表中读取。
+- 联合索引：下面最左匹配
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;聚簇索引和非聚簇索引&#34;&gt;聚簇索引和非聚簇索引&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 在 InnoDB 里，索引B+ Tree的叶子节点存储了整行数据的是主键索引，也被称之为聚簇索引。
+- 索引B+ Tree的叶子节点存储了主键的值的是非主键索引，也被称之为非聚簇索引。
+- 聚簇索引查询更快，不需要回表
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;最左匹配&#34;&gt;最左匹配&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 在创建多列索引时，我们根据业务需求，where子句中使用最频繁的一列放在最左边，因为MySQL索引查询会遵循最左前缀匹配的原则，即最左优先，在检索数据时从联合索引的最左边开始匹配。所以当我们创建一个联合索引的时候，如(key1,key2,key3)，相当于创建了(key1)、(key1,key2)和(key1,key2,key3)三个索引，这就是最左匹配原则。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;innodb和myisam的区别&#34;&gt;InnoDB和MyISAM的区别&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- Innodb 支持事务处理与外键和行级锁，myISAM不支持
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;主从复制&#34;&gt;主从复制&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- 过程![过程](https://cdn.jsdelivr.net/gh/aidancy/FigureBed@master/img/at9g2W.png)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;五种io模型&#34;&gt;五种io模型&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- https://blog.csdn.net/ZWE7616175/article/details/80591587
+- 同步io
+  - 阻塞IO、非阻塞IO、信号驱动IO、IO多路转接
+- 异步IO
+- 阻塞程度：阻塞IO&amp;gt;非阻塞IO&amp;gt;多路转接IO&amp;gt;信号驱动IO&amp;gt;异步IO
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;redis&#34;&gt;Redis&lt;/h1&gt;
+&lt;h2 id=&#34;基本数据结构&#34;&gt;基本数据结构&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- string、list、hash、set和zset
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;和mysql的区别&#34;&gt;和MySQL的区别&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;- Redis：基于内存，读写速度快，也可做持久化，但是内存空间有限，当数据量超过内存空间时，需扩充内存
+- MySQL：基于磁盘，读写速度没有Redis快，但是不受空间容量限制
+&lt;/code&gt;&lt;/pre&gt;
+">findJob：数据库复习</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://blog.popoup.top/post/linux-q&amp;a/"" data-c="
