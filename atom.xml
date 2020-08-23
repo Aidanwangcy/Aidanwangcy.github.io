@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.popoup.top</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2020-08-04T08:40:00.655Z</updated>
+    <updated>2020-08-23T03:12:03.512Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.popoup.top"/>
     <link rel="self" href="https://blog.popoup.top/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://blog.popoup.top/images/avatar.png</logo>
     <icon>https://blog.popoup.top/favicon.ico</icon>
     <rights>All rights reserved 2020, Aidan&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[findJob（二）：操作系统]]></title>
+        <id>https://blog.popoup.top/post/findjober-cao-zuo-xi-tong/</id>
+        <link href="https://blog.popoup.top/post/findjober-cao-zuo-xi-tong/">
+        </link>
+        <updated>2020-08-23T02:44:39.000Z</updated>
+        <summary type="html"><![CDATA[<p>这次是操作系统，其实我都写完了，只不过在添加，面试了这么多发现考操作系统的知识还是很多的，可以去文末的幕布看，我都及时更新在幕布里面了，祝早日拿到offer！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这次是操作系统，其实我都写完了，只不过在添加，面试了这么多发现考操作系统的知识还是很多的，可以去文末的幕布看，我都及时更新在幕布里面了，祝早日拿到offer！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[findJob（一）：数据库复习]]></title>
         <id>https://blog.popoup.top/post/findjobshu-ju-ku-fu-xi/</id>
@@ -107,19 +118,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
 <p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Netatalk v3 安装 - deepin]]></title>
-        <id>https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/</id>
-        <link href="https://blog.popoup.top/post/netatalk-v3-an-zhuang-deepin/">
-        </link>
-        <updated>2019-07-08T01:30:55.000Z</updated>
-        <summary type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本<br>
-所以使用官网安装方法安装v3版本</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>直接用apt安装安装的是netatalk v2版本<br>
-所以使用官网安装方法安装v3版本</p>
 ]]></content>
     </entry>
 </feed>
