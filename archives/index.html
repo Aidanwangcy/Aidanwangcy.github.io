@@ -9,7 +9,7 @@
 <meta name="description" content="Pain is motivation.">
 <meta name="theme-color" content="#000">
 <title>Aidan&#39;s Blog</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/favicon.ico?v=1609060545549">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/favicon.ico?v=1609125433450">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/css/mist.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/fonts/font-awesome.css">
 <link
@@ -710,6 +710,26 @@
     });
   }
 
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script>
+  let images = document.querySelectorAll('.section img');
+  console.log(images);
+  images.forEach(image => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement('a');
+    aelem.href = image.src;
+    aelem.dataset['fancybox'] = 'images';
+    aelem.dataset['rel'] = 'fancybox-button';
+    aelem.classList.add('fancybox');
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  })
 </script>
   </div>
 </body>
@@ -2208,6 +2228,7 @@ if name == &#39;main&#39;:
 
 </script>
 <script src="https://cdn.jsdelivr.net/gh/aidancy/aidancy.github.io/media/js/motion.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 <script>
