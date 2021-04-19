@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.popoup.top</id>
     <title>Aidan&apos;s Blog</title>
-    <updated>2021-01-30T10:27:15.474Z</updated>
+    <updated>2021-04-19T04:40:46.644Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.popoup.top"/>
     <link rel="self" href="https://blog.popoup.top/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://blog.popoup.top/images/avatar.png</logo>
     <icon>https://blog.popoup.top/favicon.ico</icon>
     <rights>All rights reserved 2021, Aidan&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[（小技巧）取消终端的conda base自动激活]]></title>
+        <id>https://blog.popoup.top/post/xiao-ji-qiao-qu-xiao-zhong-duan-de-conda-base-zi-dong-ji-huo/</id>
+        <link href="https://blog.popoup.top/post/xiao-ji-qiao-qu-xiao-zhong-duan-de-conda-base-zi-dong-ji-huo/">
+        </link>
+        <updated>2021-04-19T04:35:57.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[findJob（二）：操作系统]]></title>
         <id>https://blog.popoup.top/post/findjober-cao-zuo-xi-tong/</id>
@@ -105,19 +112,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>打算大范围使用docker来搭建环境<br>
 有关Docker的内容命令太多以防忘记</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[go:defer & interface]]></title>
-        <id>https://blog.popoup.top/post/defer-and-interface/</id>
-        <link href="https://blog.popoup.top/post/defer-and-interface/">
-        </link>
-        <updated>2019-07-19T12:47:39.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
-<p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>有关defer &amp; interface用法：defer用于资源的释放，会在函数返回之前进行调用。</strong></p>
-<p>紧记defer是用在函数返回前调用，defer是在return之前执行的。</p>
 ]]></content>
     </entry>
 </feed>
